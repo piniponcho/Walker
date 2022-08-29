@@ -44,6 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_195759) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "routes", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "area"
+    t.index ["user_id"], name: "index_routes_on_user_id"
+    
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.float "rating"
@@ -70,5 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_195759) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "routes", "users"
   add_foreign_key "reviews", "users"
 end

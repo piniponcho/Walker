@@ -1,0 +1,10 @@
+ <div class="container">
+  <div>
+    <h1>Routes</h1>
+      <p class="card-text">User: <%= current_user.email%></p>
+    <% @routes.each do |route| %>
+      <p class="card-text">Name: <%= route.name %></p>
+      <p class="card-text">Address: <%= route.address %></p>
+    <% end %>
+  </div>
+</div>
