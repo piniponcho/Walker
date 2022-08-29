@@ -15,4 +15,10 @@ User.create!(email: "juan@gmail.com", password: "123456", walker_status: false, 
 
 puts "CREATED walker@gmail.com, user@gmail.com, juan@gmail.com USERS"
 
-Dog.create!(name: "Pikachu", breed: "Pokemon", age: 23, weight: 32, size:, user_id:)
+puts "DESTROYING DOGS"
+
+Dog.create!(name: "Pikachu", breed: "Pokemon", birthday: Date.now, weight: 32, size: "Small Doggie", user_id: 2)
+Dog.create!(name: "Cuca", breed: "Gato", birthday: Date.now, weight: 100, size: "Big DOGGO", user_id: 3)
+Dog.create!(name: "Coco", breed: "Audi A6 Turbo", birthday: Date.now, weight: 200, size: "PERROTE", user_id: 2)
+
+puts "CREATED Pikachu, Cuca, Coco DOGS"
