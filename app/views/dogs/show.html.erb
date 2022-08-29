@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-sm-6", style="height: 500px">
+      <div class="card">
+        <% if @dog.photo.attached? %>
+            <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @dog.name %></h5>
+          <p class="card-text text-center py-1">Age: <%= dog.age %></p>
+          <p class="card-text text-center py-1">Breed: <%= dog.breed %></p>
+          <p class="card-text text-center py-1">Size: <%= dog.size %></p>
+          <p class="card-text text-center py-1">Weight: <%= dog.weight %></p>
+          <div class="d-flex justify-content-around">
+            <%= link_to "Edit this dog", edit_dog_path(@dog), class:"btn btn-outline-secondary"%>
+            <%# <%= link_to "Delete this dog",  %>
+            <%# <%= button_to "Destroy this dog", @dog, class:"btn btn-outline-secondary", method: :delete if policy(@dog).destroy? %> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
