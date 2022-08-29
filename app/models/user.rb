@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   has_many :routes, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :dogs, dependent: :destroy
 end

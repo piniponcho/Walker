@@ -18,8 +18,8 @@ puts "CREATED walker@gmail.com, user@gmail.com, juan@gmail.com USERS"
 puts "DESTROYING DOGS"
 
 Dog.destroy_all
-Dog.create!(name: "Pikachu", breed: "Pokemon", birthday: Date.now, weight: 32, size: "Small Doggie", user_id: 2)
-Dog.create!(name: "Cuca", breed: "Gato", birthday: Date.now, weight: 100, size: "Big DOGGO", user_id: 3)
-Dog.create!(name: "Coco", breed: "Audi A6 Turbo", birthday: Date.now, weight: 200, size: "PERROTE", user_id: 2)
+Dog.create!(name: "Pikachu", breed: "Pokemon", birthday: "01-20-2022", weight: 32, size: "Small Doggie", user_id: 2)
+Dog.create!(name: "Cuca", breed: "Gato", birthday: "10-10-2022", weight: 100, size: "Big DOGGO", user_id: 3)
+Dog.create!(name: "Coco", breed: "Audi A6 Turbo", birthday: "12-15-2022", weight: 200, size: "PERROTE", user_id: 2)
 
 puts "CREATED Pikachu, Cuca, Coco DOGS"

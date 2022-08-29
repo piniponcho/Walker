@@ -1,3 +1,3 @@
 class Record < ApplicationRecord
-  belongs_to :routes
+  belongs_to :route
 end
