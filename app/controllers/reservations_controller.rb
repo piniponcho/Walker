@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show edit update delete]
 
   def index
-    @reservations = Reservation.where(user: current_user)
+    @reservations = Reservation.joins(record: :route).where(route: {user_id: current_user})
   end
 
   def show

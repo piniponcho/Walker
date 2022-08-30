@@ -7,7 +7,7 @@
             <div>
               <h5 class="card-title pt-2 text-cennoneter text-decoration-"><strong><%= link_to dog.name, dog_path(dog) %></strong></h5>
             </div>
-            <%= link_to "New dog", new_dog_path if policy(Dog).new? %>
+            <%= link_to "New dog", new_dog_path %>
         </div>
       <% end %>
     </div>

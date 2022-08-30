@@ -1,7 +1,9 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: %i[show edit update delete]
+
   def index
-    @records = Record.where(user: current_user)
+    # @route = Route.find(params[:route_id])
+    # record = Record.new()
   end
 
   def show
@@ -13,13 +15,13 @@ class RecordsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @record = Record.create(record_params)
-    @record.user = @user
+    @route = Route.find(params[:route_id])
+    @record = Record.new(record_params)
+    @record.route_id = @route.id
     if @record.save
-      redirect_to records_path(@record)
+      redirect_to route_path(@route)
     else
-      render :new, status: :unprocessable_entity
+      render "routes/show", status: :unprocessable_entity
     end
   end
 
@@ -35,6 +37,7 @@ class RecordsController < ApplicationController
   end
 
   def destroy
+    authorize @record
     @record.destroy
     redirect_to records_path, status: :see_other
   end
