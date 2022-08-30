@@ -6,3 +6,6 @@
 <% @route.records.each do |record| %>
   <%= record.start_time %>
 <% end %>
+
+<%= link_to "Edit this route", edit_route_path(@route), class:"btn btn-outline-secondary"%>
+<%= link_to "Eliminar esta route", route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
