@@ -1,17 +1,13 @@
  <div class="container py-6">
   <div class="my-3">
-    <%= render "search_form" %>
   </div>
     <div class="home-index-cards">
       <% @dogs.each do |dog| %>
         <div>
-          <% if dog.photo.attached? %>
-            <div class="home-index-card" style="background-image: url('<%= cl_image_path dog.photo.key, height: 400, width: 320, crop: :fill %>')">
-            </div>
-            <% end %>
             <div>
               <h5 class="card-title pt-2 text-cennoneter text-decoration-"><strong><%= link_to dog.name, dog_path(dog) %></strong></h5>
             </div>
+            <%= link_to "New dog", new_dog_path if policy(Dog).new? %>
         </div>
       <% end %>
     </div>

@@ -1,20 +1,23 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: %i[show edit update delete]
+  before_action :set_route, only: %i[show edit update destroy]
 
   def index
-    @routes = Route.where(user: current_user)
+    @routes = policy_scope(Route)
   end
 
   def show
+    authorize @route
   end
 
   def new
     @route = Route.new
+    authorize @route
   end
 
   def create
     @route = Route.new(route_params)
     @route.user = current_user
+    authorize @route
     if @route.save
       redirect_to routes_path
     else
@@ -36,11 +39,9 @@ class RoutesController < ApplicationController
   end
 
   def destroy
-    if Route.update(route_params)
-      redirect_to routes_path(@route)
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    authorize @route
+    @route.destroy
+    redirect_to routes_path, status: :see_other
   end
 
   private

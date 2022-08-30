@@ -3,7 +3,7 @@
     <h1>Routes</h1>
       <p class="card-text">User: <%= current_user.email%></p>
     <% @routes.each do |route| %>
-      <p class="card-text">Name: <%= route.name %></p>
+      <p class="card-text">Name: <%= link_to route.name, route_path(route) %></p>
       <p class="card-text">Address: <%= route.address %></p>
       <% route.records.each do |record| %>
       <p>Mis horarios</p>
@@ -16,4 +16,5 @@
       <% end %>
     <% end %>
   </div>
+  <%= link_to "New route", new_route_path if policy(Route).new? %>
 </div>
