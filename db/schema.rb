@@ -55,13 +55,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_221303) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.bigint "routes_id", null: false
+    t.bigint "route_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["routes_id"], name: "index_records_on_routes_id"
+    t.index ["route_id"], name: "index_records_on_route_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -110,7 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_221303) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "dogs", "users"
-  add_foreign_key "records", "routes", column: "routes_id"
+  add_foreign_key "records", "routes"
   add_foreign_key "reservations", "dogs"
   add_foreign_key "reservations", "records"
   add_foreign_key "reviews", "users"

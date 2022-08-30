@@ -18,8 +18,24 @@ puts "CREATED walker@gmail.com, user@gmail.com, juan@gmail.com USERS"
 puts "DESTROYING DOGS"
 
 Dog.destroy_all
-Dog.create!(name: "Pikachu", breed: "Pokemon", birthday: "01-20-2022", weight: 32, size: "Small Doggie", user_id: 2)
+Dog.create!(name: "Pikachu", breed: "Pokemon", birthday: "01-02-2022", weight: 32, size: "Small Doggie", user_id: 2)
 Dog.create!(name: "Cuca", breed: "Gato", birthday: "10-10-2022", weight: 100, size: "Big DOGGO", user_id: 3)
-Dog.create!(name: "Coco", breed: "Audi A6 Turbo", birthday: "12-15-2022", weight: 200, size: "PERROTE", user_id: 2)
+Dog.create!(name: "Coco", breed: "Audi A6 Turbo", birthday: "15-12-2022", weight: 200, size: "PERROTE", user_id: 2)
 
 puts "CREATED Pikachu, Cuca, Coco DOGS"
+
+
+puts "DESTROYING ROUTES"
+
+Route.destroy_all
+Route.create!(name: "Plaza", address: "Corrientes 2668", user_id: 1)
+
+
+puts "DESTROYING RECORDS"
+Record.destroy_all
+Record.create!(route_id: 1, start_time: "01-02-2022", end_time: "01-02-2022")
+
+
+puts "DESTROYING RESERVATION"
+Reservation.destroy_all
+Reservation.create!(record_id: 1, dog_id: 1)

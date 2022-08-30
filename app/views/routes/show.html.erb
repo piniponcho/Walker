@@ -1,0 +1,8 @@
+
+<p class="card-text">Name: <%= @route.name %></p>
+<p class="card-text">Address: <%= @route.address %></p>
+
+
+<% @route.records.each do |record| %>
+  <%= record.start_time %>
+<% end %>

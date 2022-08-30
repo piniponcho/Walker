@@ -5,6 +5,15 @@
     <% @routes.each do |route| %>
       <p class="card-text">Name: <%= route.name %></p>
       <p class="card-text">Address: <%= route.address %></p>
+      <% route.records.each do |record| %>
+      <p>Mis horarios</p>
+        <%= record.start_time %>
+        <%= record.start_time %>
+         <% record.reservations.each do |reservation| %>
+              <p>Mis Paseos</p>
+              <%= reservation.dog.name %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
