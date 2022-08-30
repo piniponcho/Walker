@@ -1,16 +1,14 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: %i[show edit update delete destroy]
   def index
-    @dogs = policy_scope(Dog)
+    @dogs = Dog.where(user: current_user)
   end
 
   def show
-    authorize @dog
   end
 
   def new
     @dog = Dog.new
-    authorize @dog
     @user = current_user
   end
 
@@ -18,7 +16,6 @@ class DogsController < ApplicationController
     @user = current_user
     @dog = Dog.create(dog_params)
     @dog.user = @user
-    authorize @dog
     if @dog.save
       redirect_to dogs_path(@dog)
     else
@@ -27,11 +24,9 @@ class DogsController < ApplicationController
   end
 
   def edit
-    authorize @dog
   end
 
   def update
-    authorize @dog
     if @dog.update(dog_params)
       redirect_to dogs_path(@dog)
     else
@@ -41,7 +36,6 @@ class DogsController < ApplicationController
 
   def destroy
     @dog.destroy
-    authorize @dog
     redirect_to dogs_path, status: :see_other
   end
 

@@ -1,0 +1,6 @@
+ <h1>Reservations</h1>
+    <% @reservations.each do |reservation| %>
+      <p>Name: <%= link_to reservation.dog.name, reservation_path(reservation) %></p>
+      <p>inicio: <%= reservation.record.start_time %></p>
+      <p>termino: <%= reservation.record.end_time %></p>
+    <% end %>

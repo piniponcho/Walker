@@ -3,9 +3,21 @@
 <p class="card-text">Address: <%= @route.address %></p>
 
 
-<% @route.records.each do |record| %>
-  <%= record.start_time %>
-<% end %>
-
 <%= link_to "Edit this route", edit_route_path(@route), class:"btn btn-outline-secondary"%>
 <%= link_to "Eliminar esta route", route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
+
+<div class="container">
+  <h1>New record</h1>
+  <%= simple_form_for [@route, @record] do |f| %>
+    <%= f.input :start_time%>
+    <%= f.input :end_time%>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<% @route.records.each do |record| %>
+  <p>Inicio: <%= record.start_time %></p>
+  <p>Termino: <%= record.end_time %></p>
+<% end %>
+
+<%= console %>
