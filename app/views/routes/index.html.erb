@@ -1,5 +1,13 @@
  <div class="container">
   <div>
+    <%= form_with url: routes_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a route"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
     <h1>Routes</h1>
       <p class="card-text">User: <%= current_user.email%></p>
     <% @routes.each do |route| %>

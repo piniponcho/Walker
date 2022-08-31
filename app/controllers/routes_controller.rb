@@ -2,12 +2,20 @@ class RoutesController < ApplicationController
   before_action :set_route, only: %i[show edit update destroy]
 
   def index
-    @routes = Route.where(user: current_user)
+    if current_user.walker_status == true
+      @routes = Route.where(user: current_user)
+    else
+      if params[:query].present?
+        @routes = Route.search_by_address(params[:query])
+      else
+        @routes = Route.all
+      end
+    end
     @markers = @routes.geocoded.map do |route|
       {
         lat: route.latitude,
         lng: route.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {route: route}),
+        info_window: render_to_string(partial: "info_window", locals: { route: route }),
         image_url: helpers.asset_url("logo.png")
       }
     end
