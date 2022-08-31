@@ -8,12 +8,17 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(review_params)
-    @review.user = current_user
-    if @review.save
-      redirect_to reviews_path
-    else
-      render :new, status: :unprocessable_entity
+    @user = User.find(params[:user_id])
+    @review = Review.new(review_params)
+    @review.user = @user
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to profile_path(@user) }
+        format.text { render partial: "reviews/review", locals: {review: @review}, formats: [:html] }
+      else
+        format.html { render "pages/profile", status: :unprocessable_entity }
+        format.text # Follow the classic Rails flow and look for a create.json view
+      end
     end
   end
 
