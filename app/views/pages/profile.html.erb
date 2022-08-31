@@ -1,0 +1,18 @@
+<%= @user.first_name %>
+<%= @user.last_name %>
+
+<h2><%= pluralize @user.reviews.size, "review" %></h2>
+
+<div data-controller="insert-in-list">
+  <div data-insert-in-list-target="items">
+    <% if @user.reviews.blank? %>
+      Be the first to leave a review for <%= @user.first_name %>
+    <% else %>
+      <% @user.reviews.each do |review| %>
+        <p><%= review.comment %></p>
+        <%= current_user.first_name %>
+      <% end %>
+    <% end %>
+  </div>
+    <%= render "reviews/form" %>
+</div>

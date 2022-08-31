@@ -8,5 +8,12 @@ Rails.application.routes.draw do
   end
   resources :dogs
   resources :reservations
-
+  get "profile/:id", to: "pages#profile", as: :profile
+  resources :users do
+    resources :reviews, only: :create
+  end
+  #   collection do
+  #     resources :reviews, only: :create
+  #   end
+  # end
 end
