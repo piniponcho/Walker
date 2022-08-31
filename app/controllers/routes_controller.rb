@@ -3,6 +3,14 @@ class RoutesController < ApplicationController
 
   def index
     @routes = Route.where(user: current_user)
+    @markers = @routes.geocoded.map do |route|
+      {
+        lat: route.latitude,
+        lng: route.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {route: route}),
+        image_url: helpers.asset_url("logo.png")
+      }
+    end
   end
 
   def show
@@ -15,6 +23,7 @@ class RoutesController < ApplicationController
 
   def create
     @route = Route.new(route_params)
+    @route.user = current_user
     if @route.save
       redirect_to routes_path
     else
