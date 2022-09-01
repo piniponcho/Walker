@@ -26,6 +26,7 @@ class ReservationsController < ApplicationController
     @user = current_user
     @reservation.record = @record
     if @reservation.save
+      @record.update(available: @record.available - 1)
       @chatroom = Chatroom.new(name: "chatroom", reservation_id: @reservation.id, walker_id: @walker.id, user_id: @user.id)
       @chatroom.save
       redirect_to reservations_path

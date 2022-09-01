@@ -22,7 +22,10 @@
   <% if current_user.walker_status == true %>
       <%= link_to "Delete Record", record_path(record), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
     <% else %>
-      <%= link_to "Reservation", new_record_reservation_path(record), class:"btn btn-outline-secondary" %>
+      <% if record.available > 0 %>
+        <%= link_to "Reservation", new_record_reservation_path(record), class:"btn btn-outline-secondary" %>
+      <% else %>
+        <%= "No more available spots" %>
+      <% end %>
   <% end %>
-
 <% end %>
