@@ -24,7 +24,9 @@
       <% end %>
     <% end %>
   </div>
-  <%= link_to "New route", new_route_path %>
+  <% if current_user.walker_status == true %>
+    <%= link_to "New route", new_route_path %>
+  <% end %>
 </div>
 
 <div style="width: 100%; height: 600px;"
