@@ -1,5 +1,6 @@
 <p class="card-text">Name: <%= @route.name %></p>
 <p class="card-text">Address: <%= @route.address %></p>
+<%= cl_image_tag @route.photo.key, height: 300, width: 400, crop: :fill %>
 
 <% if current_user.walker_status == true %>
   <%= link_to "Edit this route", edit_route_path(@route), class:"btn btn-outline-secondary"%>
