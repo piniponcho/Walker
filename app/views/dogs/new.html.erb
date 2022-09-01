@@ -6,6 +6,7 @@
     <%= f.input :breed%>
     <%= f.input :size, collection: ["Small Doggie", "Medium Dog", "Large DOGGO"]%>
     <%= f.input :weight%>
+    <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
 </div>

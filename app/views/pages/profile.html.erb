@@ -1,5 +1,6 @@
 <%= @user.first_name %>
 <%= @user.last_name %>
+<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
 
 <h2><%= pluralize @user.reviews.size, "review" %></h2>
 

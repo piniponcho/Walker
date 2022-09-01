@@ -3,6 +3,7 @@
     <div class="col-sm-6", style="height: 500px">
       <div class="card">
         <div class="card-body">
+          <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
           <h5 class="card-title"><%= @dog.name %></h5>
           <p class="card-text text-center py-1">Age: <%= @dog.birthday %></p>
           <p class="card-text text-center py-1">Breed: <%= @dog.breed %></p>
