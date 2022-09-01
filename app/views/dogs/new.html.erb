@@ -4,7 +4,7 @@
     <%= f.input :name%>
     <%= f.input :birthday%>
     <%= f.input :breed%>
-    <%= f.input :size%>
+    <%= f.input :size, collection: ["Small Doggie", "Medium Dog", "Large DOGGO"]%>
     <%= f.input :weight%>
     <%= f.submit %>
   <% end %>

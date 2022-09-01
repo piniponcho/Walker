@@ -1,23 +1,28 @@
-
 <p class="card-text">Name: <%= @route.name %></p>
 <p class="card-text">Address: <%= @route.address %></p>
 
-
-<%= link_to "Edit this route", edit_route_path(@route), class:"btn btn-outline-secondary"%>
-<%= link_to "Eliminar esta route", route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
-
-<div class="container">
-  <h1>New record</h1>
-  <%= simple_form_for [@route, @record] do |f| %>
-    <%= f.input :start_time%>
-    <%= f.input :end_time%>
-    <%= f.submit %>
-  <% end %>
-</div>
-
-<% @user.records.each do |record| %>
-  <p>Inicio: <%= record.start_time %></p>
-  <p>Termino: <%= record.end_time %></p>
+<% if current_user.walker_status == true %>
+  <%= link_to "Edit this route", edit_route_path(@route), class:"btn btn-outline-secondary"%>
+  <%= link_to "Eliminar esta route", route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
+  <div class="container">
+    <h1>New record</h1>
+    <%= simple_form_for [@route, @record] do |f| %>
+      <%= f.input :start_time%>
+      <%= f.input :end_time%>
+      <%= f.input :available%>
+      <%= f.submit %>
+    <% end %>
+  </div>
 <% end %>
 
+<% @route.records.each do |record| %>
+  <p>Start: <%= record.start_time %></p>
+  <p>End: <%= record.end_time %></p>
+  <p>Available: <%= record.available %></p>
+  <% if current_user.walker_status == true %>
+      <%= link_to "Delete Record", record_path(record), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
+    <% else %>
+      <%= link_to "Reservation", new_record_reservation_path(record), class:"btn btn-outline-secondary" %>
+  <% end %>
 
+<% end %>

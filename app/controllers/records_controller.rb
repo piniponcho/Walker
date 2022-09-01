@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :set_record, only: %i[show edit update delete]
+  before_action :set_record, only: %i[show edit update destroy]
 
   def index
     # @route = Route.find(params[:route_id])
@@ -37,9 +37,8 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    authorize @record
     @record.destroy
-    redirect_to records_path, status: :see_other
+    redirect_to route_path, status: :see_other
   end
 
   private
@@ -49,6 +48,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:start_time, :end_time)
+    params.require(:record).permit(:start_time, :end_time, :available)
   end
 end
