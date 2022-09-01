@@ -2,7 +2,9 @@ class RoutesController < ApplicationController
   before_action :set_route, only: %i[show edit update destroy]
 
   def index
-    if current_user.walker_status == true
+    if current_user.walker_status == true && params[:query].present?
+      @routes = Route.where(user: current_user).search_by_address(params[:query])
+    elsif current_user.walker_status == true
       @routes = Route.where(user: current_user)
     else
       if params[:query].present?

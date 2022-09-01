@@ -1,0 +1,7 @@
+<div class="container">
+    <h1>New Reservation</h1>
+    <%= simple_form_for [@record, @reservation] do |f| %>
+      <%= f.association :dog, collection: @dogs%>
+      <%= f.submit %>
+    <% end %>
+</div>

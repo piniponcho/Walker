@@ -2,22 +2,33 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show edit update delete]
 
   def index
-    @reservations = Reservation.joins(record: :route).where(route: {user_id: current_user})
+    # @reservations = Reservation.joins(record: :route).where(route: {user_id: current_user})
+    if current_user.walker_status == true
+      @reservations = Reservation.select { |r| r.route.user == current_user }
+    else
+      @reservations = Reservation.select { |r| r.dog.user == current_user }
+    end
   end
 
   def show
   end
 
   def new
+    @record = Record.find(params[:record_id])
     @reservation = Reservation.new
+    @dogs = Dog.where(user: current_user)
   end
 
   def create
+    @record = Record.find(params[:record_id])
+    @reservation = Reservation.new(reservation_params)
+    @walker = @record.route.user
     @user = current_user
-    @reservation = Reservation.create(reservation_params)
-    @reservation.user = @user
+    @reservation.record = @record
     if @reservation.save
-      redirect_to reservations_path(@reservation)
+      @chatroom = Chatroom.new(name: "chatroom", reservation_id: @reservation.id, walker_id: @walker.id, user_id: @user.id)
+      @chatroom.save
+      redirect_to reservations_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +39,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to reservations_path(@reservation)
+      redirect_to reservations_path
     else
       render :edit, status: :unprocessable_entity
     end

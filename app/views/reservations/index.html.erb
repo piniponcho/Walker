@@ -3,5 +3,5 @@
       <p>Name: <%= link_to reservation.dog.name, reservation_path(reservation) %></p>
       <p>inicio: <%= reservation.record.start_time %></p>
       <p>termino: <%= reservation.record.end_time %></p>
-      <% link_to "chat" chat_path, %>
+      <%= link_to "chat", chatroom_path(reservation.chatroom), class:"btn btn-outline-secondary" %>
     <% end %>
