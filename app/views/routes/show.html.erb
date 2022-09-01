@@ -15,9 +15,7 @@
   <% end %>
 </div>
 
-<% @user.records.each do |record| %>
+<% @route.records.each do |record| %>
   <p>Inicio: <%= record.start_time %></p>
   <p>Termino: <%= record.end_time %></p>
 <% end %>
-
-
