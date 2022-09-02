@@ -1,7 +1,13 @@
- <h1>Reservations</h1>
-    <% @reservations.each do |reservation| %>
-      <p>Name: <%= link_to reservation.dog.name, reservation_path(reservation) %></p>
-      <p>inicio: <%= reservation.record.start_time %></p>
-      <p>termino: <%= reservation.record.end_time %></p>
-      <%= link_to "chat", chatroom_path(reservation.chatroom), class:"btn btn-outline-secondary" %>
-    <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <h1>Reservations</h1>
+      <% @reservations.each do |reservation| %>
+        <p>Name: <%= link_to reservation.dog.name, reservation_path(reservation) %></p>
+        <p>inicio: <%= reservation.record.start_time %></p>
+        <p>termino: <%= reservation.record.end_time %></p>
+        <%= link_to "chat", chatroom_path(reservation.chatroom), class:"btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

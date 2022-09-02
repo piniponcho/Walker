@@ -1,12 +1,20 @@
-<h1>New dog</h1>
 <div class="container">
-  <%= simple_form_for (@dog) do |f| %>
-    <%= f.input :name%>
-    <%= f.input :birthday%>
-    <%= f.input :breed%>
-    <%= f.input :size, collection: ["Small Doggie", "Medium Dog", "Large DOGGO"]%>
-    <%= f.input :weight%>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 py-5">
+      <div class="form-dog shadow-lg p-3 mb-5 rounded">
+        <h1 class="text-center">Register your Dog</h1>
+        <div class="container">
+          <%= simple_form_for (@dog) do |f| %>
+            <%= f.input :name, placeholder: "Add your Dog name"%>
+            <%= f.input :birthday%>
+            <%= f.input :breed, placeholder: "Add your Dog breed"%>
+            <%= f.input :size, prompt: "Choose your dog size", collection: ["Small Doggie", "Medium Dog", "Large DOGGO"]%>
+            <%= f.input :weight, placeholder: "Add your Dog breed"%>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
