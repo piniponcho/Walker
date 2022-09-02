@@ -1,32 +1,47 @@
-<p class="card-text">Name: <%= @route.name %></p>
-<p class="card-text">Address: <%= @route.address %></p>
-<%= cl_image_tag @route.photo.key, height: 300, width: 400, crop: :fill %>
+ <div class="container">
+  <div class="row py-4">
+    <div class="col-sm-6">
+      <div class="route-card mb-2 w-75" style="width: 18rem;">
+        <div>
+          <% if @route.photo.attached? %>
+            <%= cl_image_tag @route.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top"  %>
+          <% end %>
+        </div>
+        <p class="card-text">Route Name: <%= @route.name %></p>
+        <p class="card-text">Address: <%= @route.address %></p>
 
-<% if current_user.walker_status == true %>
-  <%= link_to "Edit this route", edit_route_path(@route), class:"btn btn-outline-secondary"%>
-  <%= link_to "Eliminar esta route", route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
-  <div class="container">
-    <h1>New record</h1>
-    <%= simple_form_for [@route, @record] do |f| %>
-      <%= f.input :start_time%>
-      <%= f.input :end_time%>
-      <%= f.input :available%>
-      <%= f.submit %>
-    <% end %>
-  </div>
-<% end %>
+        <% if current_user.walker_status == true %>
+          <%= link_to "Edit this route", edit_route_path(@route), class:"btn btn-outline-secondary"%>
+          <%= link_to "Delete this route", route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
+      </div>
+    </div>
 
-<% @route.records.each do |record| %>
-  <p>Start: <%= record.start_time %></p>
-  <p>End: <%= record.end_time %></p>
-  <p>Available: <%= record.available %></p>
-  <% if current_user.walker_status == true %>
-      <%= link_to "Delete Record", record_path(record), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
-    <% else %>
-      <% if record.available > 0 %>
-        <%= link_to "Reservation", new_record_reservation_path(record), class:"btn btn-outline-secondary" %>
-      <% else %>
-        <%= "No more available spots" %>
+    <div class="col-sm-6">
+      <h1>New record</h1>
+        <%= simple_form_for [@route, @record] do |f| %>
+          <%= f.input :start_time%>
+          <%= f.input :end_time%>
+          <%= f.input :available%>
+          <%= f.submit %>
+        <% end %>
       <% end %>
-  <% end %>
-<% end %>
+    </div>
+  </div>
+
+    <% @route.records.each do |record| %>
+  <div class="card route-card mb-2">
+      <p>Start Time: <%= record.start_time %></p>
+      <p>End Time: <%= record.end_time %></p>
+      <p>Available: <%= record.available %></p>
+      <% if current_user.walker_status == true %>
+          <%= link_to "Delete Record", record_path(record), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
+        <% else %>
+          <% if record.available > 0 %>
+            <%= link_to "Reservation", new_record_reservation_path(record), class:"btn btn-outline-secondary" %>
+          <% else %>
+            <%= "No more available spots" %>
+          <% end %>
+  </div>
+      <% end %>
+    <% end %>
+</div>
