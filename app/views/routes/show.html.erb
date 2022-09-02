@@ -30,9 +30,9 @@
 
     <% @route.records.each do |record| %>
   <div class="card route-card mb-2">
-      <p>Start Time: <%= record.start_time %></p>
-      <p>End Time: <%= record.end_time %></p>
-      <p>Available: <%= record.available %></p>
+      <p class="card-text">Start Time: <%= record.start_time %></p>
+      <p class="card-text">End Time: <%= record.end_time %></p>
+      <p class="card-text">Available: <%= record.available %></p>
       <% if current_user.walker_status == true %>
           <%= link_to "Delete Record", record_path(record), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
         <% else %>
