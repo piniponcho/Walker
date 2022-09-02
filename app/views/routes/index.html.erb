@@ -4,33 +4,48 @@
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Find an Address or City"
-      %>
+        placeholder: "Find an Address or City" %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
     <h1>Routes</h1>
-      <p class="card-text">User: <%= current_user.email%></p>
-    <% @routes.each do |route| %>
-      <p class="card-text">Name: <%= link_to route.name, route_path(route) %></p>
-      <p class="card-text">Address: <%= route.address %></p>
-      <% route.records.each do |record| %>
-      <p>Mis horarios</p>
-        <%= record.start_time %>
-        <%= record.start_time %>
-         <% record.reservations.each do |reservation| %>
-              <p>Mis Paseos</p>
-              <%= reservation.dog.name %>
-        <% end %>
+      <% if current_user.walker_status == true %>
+        <%= link_to "New route", new_route_path %>
       <% end %>
-    <% end %>
+      <p class="card-text">User: <%= current_user.email%></p>
   </div>
-  <% if current_user.walker_status == true %>
-    <%= link_to "New route", new_route_path %>
-  <% end %>
-</div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="row py-4">
+    <div class="col-sm-6">
+      <div>
+        <% @routes.each do |route| %>
+        <div class="card route-card mb-2 d-flex w-75 " style="width: 18rem;">
+          <div class="d-inline">
+            <div>
+              <% if route.photo.attached? %>
+              <%= cl_image_tag route.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top"  %>
+              <% end %>
+            </div>
+
+            <div class="card-body">
+              <p class="card-title">Name: <%= link_to route.name, route_path(route) %></p>
+              <p class="card-text">Address: <%= route.address %></p>
+                <%= link_to "Make a reservation", route_path(route), class:"btn btn-primary" %>
+            </div>
+          </div>
+
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div>
+      <div style="width: 100%; height: 800px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
