@@ -1,0 +1,23 @@
+.landing-container  h2 {
+  text-align: center;
+}
+.landing-cards {
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+}
+
+.landing-card {
+  width: 200px;
+  border-radius: 3px;
+  // box-shadow: 0 0 5px rgb(230 230 230 0);
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgb(230,230,230);
+}
+
+.landing-card img {
+  height: 100px;
+  width: 100px;
+}
