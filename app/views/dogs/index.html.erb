@@ -3,10 +3,9 @@
   </div>
     <h3>My dogs</h3>
     <%= link_to "Add dog", new_dog_path %>
-    <div class="home-index-cards">
+    <div class="d-flex home-index-cards">
       <% @dogs.each do |dog| %>
-
-        <div class="card" style="width: 18rem;">
+        <div class="card mx-3" style="width: 18rem;">
           <%= cl_image_tag dog.photo.key, height: 300, width: 400, crop: :fit %>
           <div class="d-flex card-body justify-content-center">
             <h5 class="card-title "><%= dog.name %></h5>
