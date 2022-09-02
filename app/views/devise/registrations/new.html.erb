@@ -20,9 +20,12 @@
                         placeholder: "Please confirm your password",
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
-            <%= f.input :walker_status, as: :select, collection: [['Walker',true], ['User',false]],
-                        prompt: "Choose your role",
-                        required: true %>
+            <%= f.input :walker_status, as: :radio_buttons, collection: [['Walker',true], ['User',false]],
+                        required: true,
+                        collection_wrapper_tag: 'div',
+                        collection_wrapper_class: 'category-wrapper',
+                        item_wrapper_class: 'category-item',
+                        input_html: {class: 'category-selector'} %>
             <%= f.input :photo, as: :file %>
           </div>
           <div class="form-actions">
