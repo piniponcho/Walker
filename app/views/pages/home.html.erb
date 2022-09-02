@@ -1,2 +1,104 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<body>
+<%# banner %>
+  <div class="banner-landing">
+    <div class="banner-content text-center">
+      <h1>We walk the walk, and bark the bark</h1>
+      <p>Become a walker!</p>
+      <%= link_to "Start now", new_user_session_path, class: "btn btn-lg btn-primary"  %>
+    </div>
+  </div>
+
+  <%# services %>
+
+<section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Services</h2>
+                    <h3 class="section-subheading text-muted">We provide exclusive service to each of our members</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa-solid fa-comments"></i>
+                        </span>
+                        <h4 class="my-3">Exclusive communication</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        </span>
+                        <h4 class="my-3">Follow your dog</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                        <i class="fa-solid fa-handshake"></i>
+
+                        </span>
+                        <h4 class="my-3">Make a difference</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <%# Our team %>
+
+  <section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="https://img.a.transfermarkt.technology/portrait/header/28003-1631171950.jpg?lm=1" alt="..." />
+                    <h4>Benito Yuchi</h4>
+                    <p class="text-muted">Lead Designer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Benito Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Benito Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Benito LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="	https://startbootstrap.github.io/startbootstrap-agency/assets/img/team/3.jpg" alt="..." />
+                    <h4>Ryusei Makiguchi</h4>
+                    <p class="text-muted">Lead Marketer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Ryusei Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Ryusei Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Ryusei LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2022-05/sporting-news-2022-photo-with-watermark-decd91ea-440c-4302-8cee-92958aaa64ed.png?itok=BUrsymsc" alt="..." />
+                    <h4>Victor Sa</h4>
+                    <p class="text-muted">Lead Marketer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Victor Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Victor Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Victor LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="https://media.gq.com.mx/photos/615c9446118f84da8a122d7f/16:9/w_2560%2Cc_limit/SI202106060375_hires_jpeg_24bit_rgb.jpg" alt="..." />
+                    <h4>Eduardo Aguilar</h4>
+                    <p class="text-muted">Lead Developer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Eduardo Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Eduardo Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Eduardo LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"></p></div>
+        </div>
+    </div>
+  </section>
+</div>
+</body>
