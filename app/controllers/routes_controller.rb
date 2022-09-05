@@ -25,6 +25,12 @@ class RoutesController < ApplicationController
 
   def show
     @record = Record.new
+    @markers = [{
+      lat: @route.latitude,
+      lng: @route.longitude,
+      info_window: render_to_string(partial: "info_window", locals: {route: @route}),
+      image_url: helpers.asset_url("logo.png")
+    }]
   end
 
   def new
