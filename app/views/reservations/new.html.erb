@@ -1,7 +1,13 @@
 <div class="container">
-    <h1>New Reservation</h1>
-    <%= simple_form_for [@record, @reservation] do |f| %>
-      <%= f.association :dog, collection: @dogs%>
-      <%= f.submit %>
-    <% end %>
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-4">
+      <div class="form-login shadow-lg p-3 mb-5 rounded">
+        <h1 class="text-center">New Reservation</h1>
+        <%= simple_form_for [@record, @reservation] do |f| %>
+          <%= f.association :dog, collection: @dogs%>
+          <%= f.submit 'Submit Your Reservation', class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
