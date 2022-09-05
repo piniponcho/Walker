@@ -21,8 +21,9 @@
             <h5>Your reviews</h5>
           <% end %>
           <% @user.reviews.each do |review| %>
-            <p><%= review.comment %></p>
             <%= current_user.first_name %>
+            <p><%= review.comment %></p>
+            <p><%= review.rating %></p>
           <% end %>
         <% end %>
       </div>

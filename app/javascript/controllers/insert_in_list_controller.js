@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["items", "form"]
   connect() {
-    
+
   }
 
   send(event) {
@@ -17,6 +17,7 @@ export default class extends Controller {
     })
       .then(response => response.text())
       .then((data) => {
+        console.log(data)
         if (data) {
           this.itemsTarget.insertAdjacentHTML("beforeend", data)
         }

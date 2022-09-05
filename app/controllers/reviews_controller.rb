@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to profile_path(@user) }
         format.text { render partial: "reviews/review", locals: {review: @review}, formats: [:html] }
       else
+        flash[:alert] = "Something went wrong."
         format.html { render "pages/profile", status: :unprocessable_entity }
         format.text # Follow the classic Rails flow and look for a create.json view
       end
