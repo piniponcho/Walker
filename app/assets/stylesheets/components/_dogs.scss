@@ -16,6 +16,7 @@
   display: block;
   position: relative;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .card-desc {
@@ -46,6 +47,7 @@
   background-size: 100% 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  background-size: cover;
 }
 
 .dogs-show-button-container{
