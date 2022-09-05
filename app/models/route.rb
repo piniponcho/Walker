@@ -5,6 +5,9 @@ class Route < ApplicationRecord
   has_many :records, dependent: :destroy
   has_many :reservations, through: :records
   has_one_attached :photo
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :photo, presence: true
   include PgSearch::Model
   pg_search_scope :search_by_address,
                   against: [:address],

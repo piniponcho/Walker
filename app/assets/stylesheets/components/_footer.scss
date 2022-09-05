@@ -1,15 +1,16 @@
 .footer {
   background: #F4F4F4;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 40px;
   width: 100%;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(249, 244, 244, 0.5);
   text-decoration: none;
   font-size: 20px;
-  background:rgb(240, 239, 239);
+  // background:rgb(240, 239, 239);
   position:fixed;
   left:0px;
   bottom:0px;
@@ -17,12 +18,13 @@
 .footer-links {
   display: flex;
   align-items: center;
+  text-align: center;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 20px;
 }
 .footer-links a {
-  color: black;
-  opacity: 0.15;
+  color: white;
+  opacity: 0.5;
   text-decoration: none;
   font-size: 18px;
   padding: 0px 10px;
