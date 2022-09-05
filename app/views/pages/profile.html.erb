@@ -1,36 +1,55 @@
-<% if current_user.walker_status == false && @user.id == current_user.id %>
-  <div class="container">
-    <h2>My dashboard</h2>
-  </div>
-<% else %>
-  <div class="container">
-    <h4><%= @user.email %></h4>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-
-    <h2><%= pluralize @user.reviews.size, "review" %></h2>
-
-    <div data-controller="insert-in-list">
-      <div data-insert-in-list-target="items">
-        <% if @user.reviews.blank? %>
-          <% if @user.id == current_user.id %>
+<div class="profile-body">
+  <div class="profile-container">
+    <% if current_user.walker_status == false && @user.id == current_user.id %>
+        <h2>My dashboard</h2>
+      <%# aca iria lo del live tracking, insertar el chat %>
+      <% else %>
+      <h1>My Reservations</h1>
+      <%# User entra al perfil de otro User %>
+        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+        <h2><%= @user.first_name %></h2>
+        <h4><%= pluralize @user.reviews.size, "review" %></h4>
+      <div data-controller="insert-in-list">
+        <div data-insert-in-list-target="items">
+          <% if @user.reviews.blank? %>
+            <% if @user.id == current_user.id %>
+            <%# si sos dueno de este profile, no ves la linea de abajo %>
+            <% else %>
+              Be the first to leave a review for <%= @user.first_name %>
+            <% end %>
           <% else %>
-            Be the first to leave a review for <%= @user.first_name %>
-          <% end %>
-        <% else %>
+            <% if @user.id == current_user.id %>
+              <h5>Your reviews</h5>
+              <%# aca si vos sos walker y dueno de este profile %>
+            <% end %>
           <% if @user.id == current_user.id %>
-            <h5>Your reviews</h5>
+          <%# no ves el form %>
+          <% else %>
+          <div class="profile-form">
+            <%= render "reviews/form" %>
+          </div>
           <% end %>
+  </div>
+  <div class="profile-card-container">
+    <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
+      <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Not Yet Convinced?</h4>
+      <h1 class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg" contenteditable="false">Read Customer Reviews</h1>
+        <ul class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm">
           <% @user.reviews.each do |review| %>
-            <%= current_user.first_name %>
-            <p><%= review.comment %></p>
-            <p><%= review.rating %></p>
+            <li>
+              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]">
+              <p class="fs-110 font-cond-l" contenteditable="false"><%= review.comment %></p>
+              <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false"><%= current_user.first_name %></h5>
+              <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false"><% review.rating.times do %>
+                <i class="fas fa-star"></i>
+            <% end %></small>
+            </li>
           <% end %>
-        <% end %>
-      </div>
-        <% if @user.id == current_user.id %>
-        <% else %>
-        <%= render "reviews/form" %>
-        <% end %>
+        </ul>
     </div>
-  </div
-<% end %>
+  </div>
+        <% end %>
+        </div>
+      </div>
+      <% end %>
+</div>
