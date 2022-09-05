@@ -1,13 +1,19 @@
 <div class="container">
+  <h1 class="my-5 text-center"><strong>Reservations</strong></h1>
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
-      <h1>Reservations</h1>
-      <% @reservations.each do |reservation| %>
-        <p>Name: <%= link_to reservation.dog.name, reservation_path(reservation) %></p>
-        <p>inicio: <%= reservation.record.start_time %></p>
-        <p>termino: <%= reservation.record.end_time %></p>
-        <%= link_to "chat", chatroom_path(reservation.chatroom), class:"btn btn-outline-secondary" %>
-      <% end %>
-    </div>
+    <% @reservations.each do |reservation| %>
+      <div class="col-6">
+        <div class="card reservation-cards">
+          <div class="card-body shadow-lg reservation-cards">
+            <h5 class="card-title letter-right"><strong>Walker Name: </strong><%= reservation.route.user.first_name %></h5>
+            <h5 class="card-title letter-right"><strong>Route Name: </strong><%= reservation.route.name %></h5>
+            <h5 class="card-title letter-right"><strong>Dog Name: </strong><%= reservation.dog.name %></h5>
+            <p class="card-text letter-right my-1"><strong>Start Time:</strong> <%= reservation.record.start_time %></p>
+            <p class="card-text letter-right"><strong>End Time: </strong><%= reservation.record.end_time %></p>
+            <%= link_to "Chat with Walker", chatroom_path(reservation.chatroom), class:"btn btn-secondary boton-cards" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
