@@ -1,3 +1,5 @@
 <p><%= current_user.first_name %></p>
 <p><%= review.comment %></p>
-<p><%= review.rating %></p>
+<p><% review.rating.times do %>
+  <i class="fas fa-star"></i>
+<% end %></p>
