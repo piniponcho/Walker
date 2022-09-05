@@ -1,9 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-
-    <% end %>
-    <div class="d-flex" style="font-size: 20px">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon align-items-center">
+  <div class="navbar-inner align-items-center">
+    <div class="d-flex navbar-logo" style="font-size: 20px">
       <%= link_to root_path, style:"text-decoration: none; color: black" do %>
         <i class="fa-thin fa-w"></i>
         <i class="fa-solid fa-paw"></i>
@@ -12,19 +9,11 @@
         <i class="fa-thin fa-e"></i>
         <i class="fa-thin fa-r"></i>
       <% end %>
-
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse navbar-picture" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? && current_user.walker_status == false %>
-          <li class="nav-item">
-
-
-          </li>
           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", :transformation=>[
@@ -65,6 +54,6 @@
           </li>
         <% end %>
       </ul>
+      </div>
     </div>
   </div>
-</div>

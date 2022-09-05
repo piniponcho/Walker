@@ -1,16 +1,16 @@
  <div class="container py-6">
   <div class="my-3">
   </div>
-    <h3>My dogs</h3>
-    <%= link_to "Add dog", new_dog_path %>
+    <h2 class="py-2">My dogs</h3>
+    <%= link_to "Add dog", new_dog_path , class:"btn btn-outline-dark"%>
     <div class="d-flex home-index-cards">
       <% @dogs.each do |dog| %>
-        <div class="card mx-3" style="width: 18rem;">
-          <%= cl_image_tag dog.photo.key, height: 300, width: 400, crop: :fit %>
-          <div class="d-flex card-body justify-content-center">
-            <h5 class="card-title "><%= dog.name %></h5>
-          </div>
-          <%= link_to "Go to profile", dog_path(dog), class:"btn btn-primary" %>
+        <div class="card mx-3 dogs-index-card" style="width: 30rem;">
+        <%= link_to dog_path(dog) do %>
+          <%= cl_image_tag dog.photo.key, crop: :fit , class:"card-img-top dogs-index-card-img" do %>
+          <% end %>
+          <h5 class="card-title card-desc"><%= dog.name %></h5>
+        <% end %>
         </div>
       <% end %>
     </div>
