@@ -1,23 +1,26 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-sm-6", style="height: 500px">
-      <div class="card">
-        <div class="card-body">
-          <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fit %>
-          <h5 class="card-title"><%= @dog.name %></h5>
-          <ul class="list-group">
-            <li class="list-group-item">C<%= @dog.birthday %></li>
-            <li class="list-group-item">Breed: <%= @dog.breed %></li>
-            <li class="list-group-item">Size: <%= @dog.size %></li>
-            <li class="list-group-item">Weight: <%= @dog.weight %></li>
-          </ul>
-
-          <div class="d-flex justify-content-around">
-            <%= link_to "Edit this dog", edit_dog_path(@dog), class:"btn btn-outline-secondary"%>
-            <%= link_to "Delete this dog", dog_path(@dog), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" %>
-          </div>
-        </div>
-      </div>
+<div class="container d-flex justify-content-center my-3">
+  <div class="card dogs-show-card" style="width: 80vw;">
+  <div class="card-img-top dog-show-img" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.5)),url('<%= cl_image_path @dog.photo.key %>')">
+    <%= link_to dogs_path, class:"btn btn-outline-light dog-show-back-btn" do%>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <div class="dogs-show-button-container">
+      <%= link_to edit_dog_path(@dog), class:"btn btn-outline-light dog-show-edit-btn" do%>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+      <%= link_to dog_path(@dog), data: {turbo_method: :delete}, class:"btn btn-outline-light dog-show-delete-btn" do%>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
+  </div>
+    <div class="card-body">
+      <h2 class="card-title"><%= @dog.name %></h2>
+      <ul class="list-group">
+        <li class="list-group-item">Birthday: <%= @dog.birthday %></li>
+        <li class="list-group-item">Breed: <%= @dog.breed %></li>
+        <li class="list-group-item">Size: <%= @dog.size %></li>
+        <li class="list-group-item">Weight: <%= @dog.weight %> Kgs</li>
+      </ul>
     </div>
   </div>
 </div>
