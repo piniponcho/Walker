@@ -1,12 +1,33 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  z-index: 9999999;
+}
+
+.navbar-inner{
+  position: relative;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-logo{
+  transform: translateX(-50%)  translateY(-50%);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+}
+
+.navbar-picture{
+  transform: translateX(-50%)  translateY(-50%);
+  position: absolute;
+  right: 0px;
+  top: 50%;
 }
