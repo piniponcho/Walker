@@ -18,7 +18,7 @@ class RoutesController < ApplicationController
         lat: route.latitude,
         lng: route.longitude,
         info_window: render_to_string(partial: "info_window", locals: { route: route }),
-        image_url: helpers.asset_url("logo.png")
+        image_url: helpers.asset_url("dog-paw.ico")
       }
     end
   end
@@ -29,7 +29,7 @@ class RoutesController < ApplicationController
       lat: @route.latitude,
       lng: @route.longitude,
       info_window: render_to_string(partial: "info_window", locals: {route: @route}),
-      image_url: helpers.asset_url("logo.png")
+      image_url: helpers.asset_url("dog-paw.ico")
     }]
   end
 
