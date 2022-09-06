@@ -8,11 +8,11 @@
         <div class="card reservation-cards my-2">
           <div class="card-body shadow-lg reservation-cards d-flex justify-content-around">
             <div>
-              <h5 class="letter-right"><strong>Walker Name:</strong><span class="letter-span"><%= reservation.route.user.first_name%></span></h5>
-              <h5 class="letter-right"><strong>Route Name:</strong> <span><%= reservation.route.name %></span</h5>
-              <h5 class="letter-right"><strong>Dog Name:</strong> <span><%= reservation.dog.name %></span</h5>
-              <p class="card-text letter-right my-1"><strong>Start Time:</strong> <span><%= reservation.record.start_time %></span</p>
-              <p class="card-text letter-right"><strong>End Time:</strong> <span><%= reservation.record.end_time %></span</p>
+              <h5 class="letter-right"><strong>Walker Name:</strong> <span class="letter-span"><%= reservation.route.user.first_name%></span></h5>
+              <h5 class="letter-right"><strong>Route Name:</strong> <span class="letter-span"><%= reservation.route.name %></span></h5>
+              <h5 class="letter-right"><strong>Dog Name:</strong> <span class="letter-span"><%= reservation.dog.name %></span></h5>
+              <p class="card-text letter-right my-1"><strong>Start Time:</strong> <span class="letter-span"><%= reservation.record.start_time %></span></p>
+              <p class="card-text letter-right"><strong>End Time:</strong> <span class="letter-span"><%= reservation.record.end_time %></span></p>
               <%= link_to "Chat with Walker", chatroom_path(reservation.chatroom), class:"btn btn-outline-dark boton-cards" %>
               <%= link_to "Delete Reservation", reservation_path(reservation), data: {turbo_method: :delete}, class:"btn btn-outline-dark boton-cards" %>
             </div>
