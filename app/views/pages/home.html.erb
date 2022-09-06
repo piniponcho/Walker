@@ -1,10 +1,10 @@
 <body>
 <%# banner %>
   <div class="banner-landing">
-    <div class="banner-content text-center">
-      <h1>We walk the walk, and bark the bark</h1>
+    <div class="banner-content text-center letter-font">
+      <h1 style="font-family: 'Playfair Display', serif"><span data-controller="typed-js"></span></h1>
       <p>Find a walker near you!</p>
-      <%= link_to "Start now", new_user_session_path, class: "btn btn-gradient"  %>
+      <%= link_to "Start now", routes_path, class: "btn btn-gradient"  %>
     </div>
   </div>
 
@@ -55,7 +55,7 @@
         </div>
         <div class="row my-3">
             <div class="col-lg-3">
-                <div class="team-member"  data-aos="fade-up"
+                <div class="team-member"  data-aos="fade-right"
      data-aos-anchor-placement="bottom-bottom">
 
                     <img class="mx-auto rounded-circle" src="<%= asset_path('beni.jpg')%>" alt="Benito Yuchi" />
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="team-member"  data-aos="fade-up"
+                <div class="team-member"  data-aos="zoom-out-up"
      data-aos-anchor-placement="bottom-bottom">
 
                     <img class="mx-auto rounded-circle" src="<%= asset_path('maki.jpg') %>" alt="Ryusei Makiguchi" />
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="team-member"  data-aos="fade-up"
+                <div class="team-member"  data-aos="zoom-out-up"
      data-aos-anchor-placement="bottom-bottom">
 
                     <img class="mx-auto rounded-circle" src="<%= asset_path('vic2.jpg') %>" alt="Victor Sa" />
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="team-member"  data-aos="fade-up"
+                <div class="team-member"  data-aos="fade-left"
      data-aos-anchor-placement="bottom-bottom">
                     <img class="mx-auto rounded-circle" src="<%= asset_path('edu.jpg') %>" alt="Eduardo Aguilar" />
                     <h4>Eduardo Aguilar</h4>
