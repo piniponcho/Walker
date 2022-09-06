@@ -90,30 +90,16 @@
                 <h4><%= pluralize @user.reviews.size, "review" %></h4>
               </div>
             </div>
-            <div class="py-4 px-4">
-              <ul class="list-group">
-              <% @user.reviews.each do |review| %>
-                <li class="list-group-item">
-                  <div class="comment-text w-100">
-                    <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">
-                      <% review.rating.times do %>
-                          <i class="fas fa-star"></i>
-                      <% end %>
-                    <%= review.rating %>/5</small>
-                    <p class="m-b-5 m-t-10">
-                      <%= review.comment %>
-                    </p>
-                  </div>
-                </li>
-              <% end %>
-              </ul>
-            </div>
-            <div class="container ">
-              <div data-controller="insert-in-list">
-                <div data-insert-in-list-target="items">
-                  <div class="profile-form">
-                    <%= render "reviews/form" %>
-                  </div>
+            <div data-controller="insert-in-list">
+              <div class="py-4 px-4">
+                <ul class="list-group" data-insert-in-list-target="items">
+                <% @user.reviews.each do |review| %>
+                <% end %>
+                </ul>
+              </div>
+              <div class="container ">
+                <div class="profile-form">
+                  <%= render "reviews/form" %>
                 </div>
               </div>
             </div>

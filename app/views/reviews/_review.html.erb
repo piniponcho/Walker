@@ -1,4 +1,12 @@
-<p><%= review.comment %></p>
-<p><% review.rating.times do %>
-  <i class="fas fa-star"></i>
-<% end %></p>
+<li class="list-group-item">
+  <div class="comment-text w-100">
+    <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">
+      <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+      <% end %>
+    <%= review.rating %>/5</small>
+    <p class="m-b-5 m-t-10">
+      <%= review.comment %>
+    </p>
+  </div>
+</li>
