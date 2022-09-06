@@ -1,10 +1,10 @@
 development:
-  adapter: async
+  adapter: postgresql
 
 test:
-  adapter: test
+  adapter: postgresql
 
 production:
-  adapter: redis
+  adapter: postgresql
   url: <%= ENV.fetch("REDISCLOUD_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: Walker_production
