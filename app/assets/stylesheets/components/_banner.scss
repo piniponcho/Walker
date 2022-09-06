@@ -16,13 +16,18 @@
   }
   p {
     color: white;
-    opacity: 0.8;
+    opacity: 0.9;
     font-size: 25px;
     font-weight: lighter;
     margin-bottom: 30px;
   }
   .btn {
     padding: 15px 50px;
+    transition: 10s;
+  }
+  .btn:hover {
+  background-color: #3e8e41;
+  color: yellow;
   }
 }
 

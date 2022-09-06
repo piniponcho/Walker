@@ -1,5 +1,12 @@
-<p><%= current_user.first_name %></p>
-<p><%= review.comment %></p>
-<p><% review.rating.times do %>
-  <i class="fas fa-star"></i>
-<% end %></p>
+<li class="list-group-item">
+  <div>
+    <small class="my-2">
+      <% review.rating.times do %>
+          <i class="fas fa-star review-star-icon"></i>
+      <% end %>
+    <%= review.rating %>/5</small>
+    <p>
+      <%= review.comment %>
+    </p>
+  </div>
+</li>
