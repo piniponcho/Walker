@@ -1,55 +1,128 @@
-<div class="profile-body">
-  <div class="profile-container">
-    <% if current_user.walker_status == false && @user.id == current_user.id %>
-        <h2>My dashboard</h2>
-      <%# aca iria lo del live tracking, insertar el chat %>
-      <% else %>
-      <h1>My Reservations</h1>
-      <%# User entra al perfil de otro User %>
-        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-        <h2><%= @user.first_name %></h2>
-        <h4><%= pluralize @user.reviews.size, "review" %></h4>
-      <div data-controller="insert-in-list">
-        <div data-insert-in-list-target="items">
-          <% if @user.reviews.blank? %>
-            <% if @user.id == current_user.id %>
-            <%# si sos dueno de este profile, no ves la linea de abajo %>
-            <% else %>
-              Be the first to leave a review for <%= @user.first_name %>
-            <% end %>
-          <% else %>
-            <% if @user.id == current_user.id %>
-              <h5>Your reviews</h5>
-              <%# aca si vos sos walker y dueno de este profile %>
-            <% end %>
-          <% if @user.id == current_user.id %>
-          <%# no ves el form %>
-          <% else %>
-          <div class="profile-form">
-            <%= render "reviews/form" %>
+<div class="container">
+
+
+    <% if current_user.walker_status == true%>
+      <%# walker %>
+
+
+      <% if @user.id == current_user.id %>
+        <%# im walker and its my profile %>
+
+
+      <div class="row py-5 px-4 mb-3">
+        <div>
+          <!-- Profile widget -->
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover">
+              <div class="media d-flex align-items-center profile-head ">
+                <div class="profile mr-5">
+                    <%= cl_image_tag @user.photo.key, width: 130, crop: :fill, class:"rounded mb-2 img-thumbnail"%>
+                </div>
+                <div class="media-body text-white">
+                    <h4 class="ml-5 px-5"><%= @user.first_name %> <%= @user.last_name %></h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-4 py-3 mt-4">
+              <div class="p-4 rounded shadow-sm bg-light">
+                <h4><%= pluralize @user.reviews.size, "review" %></h4>
+              </div>
+            </div>
+            <div class="py-4 px-4">
+              <ul class="list-group">
+              <% @user.reviews.each do |review| %>
+                <li class="list-group-item">
+                  <div class="comment-text w-100">
+                    <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">
+                      <% review.rating.times do %>
+                          <i class="fas fa-star"></i>
+                      <% end %>
+                    <%= review.rating %>/5</small>
+                    <p class="m-b-5 m-t-10">
+                      <%= review.comment %>
+                    </p>
+                  </div>
+                </li>
+              <% end %>
+              </ul>
+            </div>
           </div>
-          <% end %>
-  </div>
-  <div class="profile-card-container">
-    <div class="mgb-40 padb-30 auto-invert line-b-4 align-center">
-      <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Not Yet Convinced?</h4>
-      <h1 class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg" contenteditable="false">Read Customer Reviews</h1>
-        <ul class="hash-list cols-3 cols-1-xs pad-30-all align-center text-sm">
-          <% @user.reviews.each do |review| %>
-            <li>
-              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]">
-              <p class="fs-110 font-cond-l" contenteditable="false"><%= review.comment %></p>
-              <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false"><%= current_user.first_name %></h5>
-              <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false"><% review.rating.times do %>
-                <i class="fas fa-star"></i>
-            <% end %></small>
-            </li>
-          <% end %>
-        </ul>
-    </div>
-  </div>
-        <% end %>
         </div>
       </div>
+
+      <% elsif @user.walker_status == true && @user.id != current_user.id%>
+        <%# im walker and im in another walkers profile NO ACCESS%>
+        <h1>YOU DONT HAVE ACCESS TO THIS WALKERS PROFILE</h1>
+      <% else %>
+        <%# im walker and im in a user profile NO ACCESS%>
+        <h1>YOU DONT HAVE ACCESS TO THIS USERS PROFILE</h1>
       <% end %>
-</div>
+
+
+    <% else %>
+      <%# non walker %>
+
+
+      <% if @user.id == current_user.id %>
+        <%# im user and its my profile %>
+        <h2>My dashboard</h2>
+        <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+
+      <% elsif @user.walker_status == true %>
+        <%# im user and im in a walker profile %>
+        <div class="row py-5 px-4 mb-3">
+        <div>
+          <!-- Profile widget -->
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover">
+              <div class="media d-flex align-items-center profile-head ">
+                <div class="profile mr-5">
+                    <%= cl_image_tag @user.photo.key, width: 130, crop: :fill, class:"rounded mb-2 img-thumbnail"%>
+                </div>
+                <div class="media-body text-white">
+                    <h4 class="ml-5 px-5"><%= @user.first_name %> <%= @user.last_name %></h4>
+                </div>
+              </div>
+            </div>
+            <div class="px-4 py-3 mt-4">
+              <div class="p-4 rounded shadow-sm bg-light">
+                <h4><%= pluralize @user.reviews.size, "review" %></h4>
+              </div>
+            </div>
+            <div class="py-4 px-4">
+              <ul class="list-group">
+              <% @user.reviews.each do |review| %>
+                <li class="list-group-item">
+                  <div class="comment-text w-100">
+                    <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">
+                      <% review.rating.times do %>
+                          <i class="fas fa-star"></i>
+                      <% end %>
+                    <%= review.rating %>/5</small>
+                    <p class="m-b-5 m-t-10">
+                      <%= review.comment %>
+                    </p>
+                  </div>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+            <div class="container ">
+              <div data-controller="insert-in-list">
+                <div data-insert-in-list-target="items">
+                  <div class="profile-form">
+                    <%= render "reviews/form" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% else %>
+        <%# im user and im in another users profile NO ACCESS%>
+        <h1>YOU DONT HAVE ACCESS TO THIS USERS PROFILE</h1>
+      <% end %>
+    <% end %>
+  </div>
