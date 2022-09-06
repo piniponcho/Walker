@@ -1,0 +1,45 @@
+.julio_card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: url(https://images.unsplash.com/photo-1588249762216-4f6461ac7660?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80)
+  center no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.julio_card::before,
+.julio_card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(60% + 35px);
+  background-color: #fff;
+  transition: transform .5s .25s
+  ease-in;
+  z-index: -1;
+}
+
+.julio_card::before {
+  top: 0;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 45%, 0% 100%);
+  transform: translateY(100%);
+}
+
+.julio_card__content {
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.julio_card:hover::before,
+.julio_card:hover::after {
+  transform: translateY(0);
+}
+
+.julio_card:hover .julio_card__content {
+  opacity: 1;
+  transition-delay: .75s;
+}
