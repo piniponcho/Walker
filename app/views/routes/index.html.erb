@@ -5,38 +5,32 @@
         params[:query],
         class: "form-control",
         placeholder: "Find an Address or City" %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-outline-dark" %>
     <% end %>
     <h1>Routes</h1>
       <% if current_user.walker_status == true %>
-        <%= link_to "New route", new_route_path %>
+        <%= link_to "New route", new_route_path, class: " btn btn-outline-dark" %>
       <% end %>
       <p class="card-text">User: <%= current_user.email%></p>
   </div>
 
   <div class="row py-4">
     <div class="col-sm-6">
-      <div>
-        <% @routes.each do |route| %>
-        <div class="card route-card mb-2 d-flex w-75 " style="width: 18rem;">
-          <div class="d-inline">
-            <div>
-              <% if route.photo.attached? %>
-              <%= cl_image_tag route.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top"  %>
-              <% end %>
-            </div>
 
-            <div class="card-body">
-              <p class="card-title">Name: <%= link_to route.name, route_path(route) %></p>
-              <p class="card-text">Address: <%= route.address %></p>
-                <%= link_to "Make a reservation", route_path(route), class:"btn btn-primary" %>
-            </div>
-          </div>
 
-        </div>
+    <div class="d-flex home-index-cards">
+      <% @routes.each do |route| %>
+        <div class="card mx-3 routes-index-card" style="width: 30rem;">
+        <%= link_to route_path(route) do %>
+          <%= cl_image_tag route.photo.key, crop: :fit , class:"card-img-top routes-index-card-img" do %>
+          <% end %>
+          <h5 class="card-title card-desc"><%= route.name %></h5>
         <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
+
+
 
     <div class="col-sm-6">
       <div>

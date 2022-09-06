@@ -1,19 +1,22 @@
 .banner-landing {
-  height: 80vh;
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), image-url("landing.avif");
-  background-size: contain;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    image-url("landing.avif");
+  background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   h1 {
     color: white;
     font-weight: bold;
     font-size: 45px;
+    font-family: $body-font;
   }
   p {
     color: white;
-    opacity: .8;
+    opacity: 0.8;
     font-size: 25px;
     font-weight: lighter;
     margin-bottom: 30px;
