@@ -1,4 +1,11 @@
- <div class="container">
+<div class="banner-route hero-image">
+  <div class="hero-text">
+    <h1>Routes</h1>
+  </div>
+</div>
+
+ <div class="container my-2">
+
   <div>
     <%= form_with url: routes_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
@@ -7,34 +14,31 @@
         placeholder: "Find an Address or City" %>
       <%= submit_tag "Search", class: "btn btn-outline-dark" %>
     <% end %>
-    <h1>Routes</h1>
       <% if current_user.walker_status == true %>
-        <%= link_to "New route", new_route_path, class: " btn btn-outline-dark" %>
+        <%= link_to "New route", new_route_path, class: " btn btn-outline-dark mt-2" %>
       <% end %>
-      <p class="card-text">User: <%= current_user.email%></p>
   </div>
 
   <div class="row py-4">
-    <div class="col-sm-6">
 
-
-    <div class="d-flex home-index-cards">
-      <% @routes.each do |route| %>
-        <div class="card mx-3 routes-index-card" style="width: 30rem;">
-        <%= link_to route_path(route) do %>
-          <%= cl_image_tag route.photo.key, crop: :fit , class:"card-img-top routes-index-card-img" do %>
-          <% end %>
-          <h5 class="card-title card-desc"><%= route.name %></h5>
+    <div class="col-8 flex-wrap">
+      <div class="row">
+        <% @routes.each do |route| %>
+          <div class="col-6">
+            <div class="card mb-4 show-route-card">
+              <%= link_to route_path(route) do %>
+                <%= cl_image_tag route.photo.key, crop: :fit , class:"card-img-top show-route-card" do %>
+                <% end %>
+                <h5 class="card-title card-desc show-route-card text-center"><%= route.name %></h5>
+              <% end %>
+            </div>
+          </div>
         <% end %>
-        </div>
-      <% end %>
+      </div>
     </div>
 
-
-
-    <div class="col-sm-6">
-      <div>
-      <div style="width: 100%; height: 800px;"
+    <div class="col-4">
+      <div class="mx-100 h-100 show-route-card"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
