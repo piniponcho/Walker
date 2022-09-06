@@ -2,7 +2,10 @@
     data: {insert_in_list_target: "form",
     action: "submit->insert-in-list#send"
     }) do |f| %>
-  <%= f.input :comment, as: :text %>
-  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-  <input class="btn btn-primary <%= f.button :submit%>
+
+    <%= f.input :comment, as: :text %>
+  <div class="d-flex justify-content-between">
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+    <%= f.submit class:"btn btn-outline-dark"%>
+  </div>
 <% end %>
