@@ -56,7 +56,7 @@
       <%# im user and its my profile %>
       <h2>My dashboard</h2>
       <div>
-        <div class="bg-white shadow rounded overflow-hidden">
+        <div class="bg-white shadow overflow-hidden profile-rounded">
           <div class="px-4 pt-0 pb-4 cover">
             <div class="media d-flex align-items-center profile-head ">
               <div class="profile mr-5">
@@ -74,13 +74,13 @@
       <%# im user and im in a walker profile %>
       <div class="row py-5 px-4 mb-3">
       <div>
-        <div class="bg-white shadow rounded overflow-hidden profile-rounded">
-          <div class="px-4 pt-0 pb-4 cover">
+        <div class="bg-white shadow overflow-hidden profile-rounded">
+          <div class="px-4 pt-0 pb-4 cover ">
             <div class="media d-flex align-items-center profile-head ">
               <div class="profile mr-5">
                   <%= cl_image_tag @user.photo.key, width: 130, crop: :fill, class:"rounded mb-2 img-thumbnail"%>
               </div>
-              <div class="media-body text-white">
+              <div class="media-body text-white profile-rounded">
                   <h4 class="ml-5 px-5"><%= @user.first_name %> <%= @user.last_name %></h4>
               </div>
             </div>

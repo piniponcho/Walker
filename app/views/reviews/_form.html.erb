@@ -6,6 +6,6 @@
     <%= f.input :comment, as: :text %>
   <div class="d-flex justify-content-between">
     <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-    <%= f.submit class:"btn btn-outline-dark"%>
+    <%= f.submit class:"btn btn-outline-dark review-button profile-rounded"%>
   </div>
 <% end %>
