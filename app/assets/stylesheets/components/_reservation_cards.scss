@@ -1,13 +1,42 @@
 .reservation-cards {
-  border-radius: 30px 100px;
-  background-color: rgb(183, 191, 190);
+  border-radius: 20px;
+  background-color:white;
 }
 
 .boton-cards {
-  margin-left: 230px;
+  margin-left: 25px;
   border-radius: 30px;
 }
 
 .letter-right {
   margin-left: 30px;
+  font-size: 15px;
+}
+
+.letter-h4 {
+  color: rgba(144, 144, 151, 0.901);
+  font-size: 15px;
+}
+
+.letter-span{
+  
+}
+
+.card-reservation-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+}
+
+.banner-reservation {
+  height: calc(45vh - 60px);
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)),
+    image-url("reservation.jpg");
+  background-size: cover;
+  background-position: center;
+  h1 {
+    color: rgba(255, 255, 255, 0.697);
+    font-family: $body-font;
+  }
 }
