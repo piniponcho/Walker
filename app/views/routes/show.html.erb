@@ -1,5 +1,5 @@
  <div class="container mb-5">
-  <div class="row d-flex justify-content-center py-3">
+  <div class="row d-flex justify-content-center pt-3">
     <div class="col-9">
       <div class="card card-img show-route-card">
         <% if @route.photo.attached? %>
@@ -12,18 +12,22 @@
       </div>
       <div class="col-8 mb-2 w-100 d-flex justify-content-start">
         <div class="mt-3 mb-1">
-          <h2 class="card-text"><%= @route.name %></h2>
+          <div class="d-flex">
+            <h2><%= @route.name %></h2>
+            <% if current_user.walker_status == true %>
+              <div class="mx-3">
+                <%= link_to edit_route_path(@route), class:"btn btn-outline-secondary" do%>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <% end %>
+                <%= link_to route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" do%>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
           <p class="card-text">Address: <%= @route.address %></p>
           <p class="card-text">Walker: <%= @route.user.first_name %></p>
           <% if current_user.walker_status == true %>
-            <div>
-              <%= link_to edit_route_path(@route), class:"btn btn-outline-secondary" do%>
-               <i class="fa-solid fa-pen-to-square"></i>
-              <% end %>
-              <%= link_to route_path(@route), data: {turbo_method: :delete}, class:"btn btn-outline-secondary" do%>
-                <i class="fa-solid fa-trash"></i>
-              <% end %>
-            </div>
         </div>
       </div>
     </div>
@@ -32,7 +36,7 @@
         <h4 class="text-center pb-2">Set your Schedule</h4>
           <%= simple_form_for [@route, @record] do |f| %>
             <%= f.input :start_time, as: :date, html5: true, input_html: { type: 'datetime-local' }%>
-            <%= f.input :end_time, as: :date, html5: true, input_html: { type: 'datetime-local' }, minute_step: 15 %>
+            <%= f.input :end_time, as: :date, html5: true, input_html: { type: 'datetime-local' }, minute_step: 30 %>
             <%= f.input :available, input_html: { min: '1', max: '10' } %>
             <%= f.submit %>
           <% end %>
@@ -51,14 +55,20 @@
         <p class="card-text"><strong>Available: </strong><%= record.available %></p>
       </div>
       <% if current_user.walker_status == true %>
-        <%= link_to record_path(record), data: {turbo_method: :delete}, class:"btn" do%>
-          <i class="fa-solid fa-trash"></i>
-        <% end %>
+        <div class="text-center mb-3">
+          <%= link_to record_path(record), data: {turbo_method: :delete}, class:"btn" do%>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
         <% else %>
         <% if record.available > 0 %>
-          <%= link_to "Reservation", new_record_reservation_path(record), class:"btn btn-outline-secondary" %>
+          <div class="text-center mb-3">
+            <%= link_to "Reservation", new_record_reservation_path(record), class:"btn btn-outline-secondary btn-reservation" %>
+          </div>
         <% else %>
-          <%= "No more available spots" %>
+          <div class="text-center mb-3">
+            <%= "No more available spots" %>
+          </div>
         <% end %>
       <% end %>
     </div>
