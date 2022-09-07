@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-6 py-5">
+    <div class="col-12 col-sm-6 py-4">
       <div class="form-dog shadow-lg p-3 mb-5 rounded">
         <h1 class="text-center">Register your Dog</h1>
         <div class="container">
@@ -11,7 +11,8 @@
             <%= f.input :size, prompt: "Choose your dog size", collection: ["Small Doggie", "Medium Dog", "Large DOGGO"]%>
             <%= f.input :weight, placeholder: "Add your Dog breed"%>
             <%= f.input :photo, as: :file %>
-            <%= f.submit %>
+            <%= f.button :submit, "Submit your Dog", class: "btn btn-outline-dark btn-new" %>
+            <%= link_to "Back to your Dogs", dogs_path, class: "btn btn-outline-dark btn-new my-3" %>
           <% end %>
         </div>
       </div>

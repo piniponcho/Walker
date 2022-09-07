@@ -1,26 +1,22 @@
 <div class="banner-route hero-image">
   <div class="hero-text">
-    <h1>Routes</h1>
+    <h1><strong>Walks<strong></h1>
   </div>
 </div>
-
- <div class="container my-2">
-
+ <div class="container my-5">
   <div>
     <%= form_with url: routes_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Find an Address or City" %>
-      <%= submit_tag "Search", class: "btn btn-outline-dark" %>
+        placeholder: "Find an Address or City"%>
+      <%= submit_tag "Search", class: "btn btn-outline-dark mx-2" %>
     <% end %>
       <% if current_user.walker_status == true %>
-        <%= link_to "New route", new_route_path, class: " btn btn-outline-dark mt-2" %>
+        <%= link_to "New route", new_route_path, class: "btn btn-outline-dark my-3" %>
       <% end %>
   </div>
-
   <div class="row py-4">
-
     <div class="col-8 flex-wrap">
       <div class="row">
         <% @routes.each do |route| %>
@@ -36,7 +32,6 @@
         <% end %>
       </div>
     </div>
-
     <div class="col-4">
       <div class="mx-100 h-100 show-route-card"
         data-controller="map"
