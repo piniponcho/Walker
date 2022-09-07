@@ -21,8 +21,9 @@
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :walker_status, as: :radio_buttons, collection: [['Walker',true], ['User',false]],
-                        required: true%>
-            <%= f.input :photo, as: :file %>
+                        required: true,
+                        label: 'Choose a role' %>
+            <%= f.input :photo, as: :file, label: 'Choose a picture' %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Submit", class: "btn btn-outline-dark" %>
