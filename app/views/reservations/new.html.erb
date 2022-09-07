@@ -1,12 +1,32 @@
+<div class="profile-card-category">
+  <div class="dog-card-content text-center letter-font">
+    <h1>New Reservation</h1>
+  </div>
+</div>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-6 col-sm-offset-4">
-      <div class="form-login shadow-lg p-3 mb-5 rounded">
-        <h1 class="text-center">New Reservation</h1>
+      <div class="form-login shadow-lg py-3 my-5">
+        <h5>Reservation for:</h5>
+        <div class="d-flex align-items-center ">
+          <p class="aling-items-center">Walker's name:</p>
+          <%= link_to profile_path(@record.route.user), class:"btn btn-outline-dark w-25 px-0 mx-2" do%>
+          <%= @record.route.user.first_name%> <%= @record.route.user.last_name %>
+          <% end %>
+        </div>
+         <div class="d-flex align-items-center ">
+          <p>Walk:</p>
+          <%= link_to route_path(@record.route), class:"btn btn-outline-dark w-50 px-0 mx-2" do%>
+          <%= @record.route.name%>
+          <% end %>
+
+        </div>
+        <p>Start time: <%= @record.start_time%></p>
         <%= simple_form_for [@record, @reservation] do |f| %>
-          <%= f.association :dog, collection: @dogs%>
-          <%= f.submit 'Submit Your Reservation', class: "btn btn-primary" %>
+          <%= f.association :dog, collection: @dogs, label: "Select a dog for this walk"%>
+          <%= f.submit 'Submit Your Reservation', class:"btn btn-outline-dark"%>
         <% end %>
+        <%= link_to "Back", routes_path, class:"btn btn-outline-dark"%>
       </div>
     </div>
   </div>

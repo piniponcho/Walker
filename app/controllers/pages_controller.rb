@@ -8,5 +8,6 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
     @review = Review.new
     @review.user = @user
+    @chatrooms = Chatroom.where(user_id: @user.id)
   end
 end
