@@ -7,15 +7,19 @@
 .sender-style, .receiver-style {
   width: 70%;
   max-width: 400px;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 8px;
   min-height: 80px;
+  text-indent: 15px;
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: #aacdef;;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: rgb(187, 187, 15);
 }
+
+
+
