@@ -51,4 +51,10 @@ window.addEventListener('DOMContentLoaded', event => {
       });
   });
 
+  $(window).scroll(function(){
+	  $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+  });
+
+
 });
+
