@@ -2,10 +2,35 @@
     transform: translateY(5rem)
 }
 
+.profile-container{
+  width: 50vw;
+}
+
 .cover {
-  background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
-  background-size: cover;
-  background-repeat: no-repeat
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%,rgba(126,133,134,1) 100%);
+}
+
+.profile-edit-button{
+  text-decoration: none;
+  color: white;
+}
+
+.profile-edit-button span{
+  font-size: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.profile-edit-button:hover span{
+  color: white;
+  visibility: visible;
+  opacity: 1;
+}
+
+.profile-icon{
+  color: white
 }
 
 .profile-rounded{
@@ -23,5 +48,41 @@
 
 .review-button{
   height: 40px;
-  
+
+}
+
+.profile-inner-container{
+  height: 80vh;
+}
+
+.profile-inner-container > div{
+  height: 100%;
+  background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(126,133,134,1) 100%);
+}
+
+.profile-card-category {
+  background-size: cover;
+  background-position: center;
+  height: calc(45vh - 60px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    image-url("showdog.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  h1 {
+    color: white;
+    font-weight:normal;
+    font-size: 36px;
+    font-family: $body-font;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  .btn {
+    padding: 15px 50px;
+    margin-top: 15px;
+  }
 }

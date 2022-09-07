@@ -1,8 +1,8 @@
-<div class="container">
   <% if current_user.walker_status == true%>
     <%# walker %>
     <% if @user.id == current_user.id %>
     <%# im walker and its my profile %>
+    <div class="container my-5">
     <div class="row py-5 px-4 mb-3">
       <div>
         <div class="bg-white shadow overflow-hidden profile-rounded">
@@ -11,14 +11,18 @@
               <div class="profile mr-5">
                   <%= cl_image_tag @user.photo.key, width: 130, crop: :fill, class:"rounded mb-2 img-thumbnail"%>
               </div>
-              <div class="media-body text-white profile-rounded">
-                  <h4 class="ml-5 px-5"><%= @user.first_name %> <%= @user.last_name %></h4>
+              <div class="media-body text-white profile-rounded d-flex">
+                <h3 class="px-4 my-0"><%= @user.first_name %> <%= @user.last_name %></h3>
+                <%= link_to  edit_user_registration_path(@user), class:"profile-edit-button" do %>
+                    <i class="fa-solid fa-pen-to-square profile-icon"></i>
+                    <span>Edit my profile</span>
+                <% end %>
               </div>
             </div>
           </div>
           <div class="px-4 py-3 mt-4 profile-rounded">
             <div class="p-4 rounded shadow-sm bg-light profile-rounded-upper">
-              <h4><%= pluralize @user.reviews.size, "review" %></h4>
+              <h4>My reviews (<%= pluralize @user.reviews.size, "review" %>)</h4>
             </div>
           </div>
           <div class="py-4 px-4">
@@ -42,36 +46,52 @@
         </div>
       </div>
     </div>
+    </div>
 
     <% elsif @user.walker_status == true && @user.id != current_user.id%>
       <%# im walker and im in another walkers profile NO ACCESS%>
-      <h1>YOU DONT HAVE ACCESS TO THIS WALKERS PROFILE</h1>
+     <div class="container forbidden-container">
+        <div class="wrapper">
+          <div class="box">
+            <h1 class="forbidden-title">403</h1>
+            <p class="forbidden-text">Sorry, it's not allowed to go beyond this point!</p>
+            <p class="forbidden-text"><a href="/">Please, go back this way.</a></p>
+          </div>
+        </div>
+      </div>
     <% else %>
       <%# im walker and im in a user profile NO ACCESS%>
-      <h1>YOU DONT HAVE ACCESS TO THIS USERS PROFILE</h1>
+      <div class="container forbidden-container">
+        <div class="wrapper">
+          <div class="box">
+            <h1 class="forbidden-title">403</h1>
+            <p class="forbidden-text">Sorry, it's not allowed to go beyond this point!</p>
+            <p class="forbidden-text"><a href="/">Please, go back this way.</a></p>
+          </div>
+        </div>
+      </div>
     <% end %>
   <% else %>
     <%# non walker %>
     <% if @user.id == current_user.id %>
       <%# im user and its my profile %>
-      <h2>My dashboard</h2>
-      <div>
-        <div class="bg-white shadow overflow-hidden profile-rounded">
-          <div class="px-4 pt-0 pb-4 cover">
-            <div class="media d-flex align-items-center profile-head ">
-              <div class="profile mr-5">
-                  <%= cl_image_tag @user.photo.key, width: 130, crop: :fill, class:"rounded mb-2 img-thumbnail"%>
-              </div>
-              <div class="media-body text-white profile-rounded">
-                  <h4 class="ml-5 px-5"><%= @user.first_name %> <%= @user.last_name %></h4>
-              </div>
-            </div>
+      <div class="container forbidden-container">
+        <div class="wrapper">
+          <div class="box">
+            <h1 class="forbidden-title">403</h1>
+            <p class="forbidden-text">Sorry, it's not allowed to go beyond this point!</p>
+            <p class="forbidden-text"><a href="/">Please, go back this way.</a></p>
           </div>
         </div>
       </div>
-
     <% elsif @user.walker_status == true %>
       <%# im user and im in a walker profile %>
+      <div class="profile-card-category">
+        <div class="dog-card-content text-center letter-font">
+          <h1>Walker</h1>
+        </div>
+      </div>
+      <div class="container">
       <div class="row py-5 px-4 mb-3">
       <div>
         <div class="bg-white shadow overflow-hidden profile-rounded">
@@ -118,9 +138,17 @@
         </div>
       </div>
     </div>
+    </div>
     <% else %>
       <%# im user and im in another users profile NO ACCESS%>
-      <h1>YOU DONT HAVE ACCESS TO THIS USERS PROFILE</h1>
+      <div class="container forbidden-container">
+        <div class="wrapper">
+          <div class="box">
+            <h1 class="forbidden-title">403</h1>
+            <p class="forbidden-text">Sorry, it's not allowed to go beyond this point!</p>
+            <p class="forbidden-text"><a href="/">Please, go back this way.</a></p>
+          </div>
+        </div>
+      </div>
     <% end %>
   <% end %>
-</div>

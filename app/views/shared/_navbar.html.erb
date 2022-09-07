@@ -27,7 +27,6 @@
               <%= link_to "My dogs", dogs_path,  class: "dropdown-item" %>
               <%= link_to "My reservations", reservations_path,  class: "dropdown-item" %>
               <%= link_to "Look for routes", routes_path,  class: "dropdown-item" %>
-              <%= link_to "My dashboard", profile_path(current_user.id),  class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
