@@ -8,10 +8,9 @@
   <div class="d-flex home-index-cards">
     <% @dogs.each do |dog| %>
       <div class="card mx-3 dogs-index-card" data-aos="zoom-out-up"
-     data-aos-anchor-placement="bottom-bottom">
-        <%= link_to dog_path(dog) do %>
-          <%= cl_image_tag dog.photo.key, crop: :fit , class:"card-img-top dogs-index-card-img" %>
-          <div class="dogs-show-button-container">
+        data-aos-anchor-placement="bottom-bottom">
+          <div class="dogs-index-card-img" style="background-image: url('<%= cl_image_path dog.photo.key, crop: :fit %>')"></div>
+          <div class="dogs-button-container">
             <%= link_to edit_dog_path(dog), class:"btn btn-outline-light dog-show-edit-btn" do %>
               <i class="fa-solid fa-pen-to-square"></i>
             <% end %>
@@ -19,25 +18,26 @@
               <i class="fa-solid fa-trash"></i>
             <% end %>
           </div>
-        <% end %>
-        <div class="dogs-card-title">
-          <h2><%= dog.name %></h2>
-          <h5>Breed: <%=dog.breed %></h5>
-        </div>
-          <div class="row dogs-info">
+        <div class="dog-index-text">
+          <div class="dogs-card-title text-center">
+            <h2><%= dog.name %></h2>
+            <h5>Breed: <%=dog.breed %></h5>
+          </div>
+          <div class="row d-flex">
             <div class="col-4 text-center">
-              <h5>Birthday</h5>
+              <h5><i class="fa-solid fa-clock"></i></h5>
               <%= dog.birthday %>
             </div>
             <div class="col-4 text-center">
-              <h5>Size </h5>
+              <h5><i class="fa-solid fa-ruler"></i></h5>
               <%= dog.size %>
             </div>
-            <div class="col-4 text-center ">
-              <h5>Weight</h5>
+            <div class="col-4 text-center">
+              <h5><i class="fa-solid fa-weight-hanging"></i></h5>
               <%= dog.weight %>
             </div>
           </div>
+        </div>
       </div>
     <% end %>
   </div>
