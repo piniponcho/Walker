@@ -29,7 +29,7 @@
             <div class="col-4 text-center">
               <h5>Age</h5>
               <% if dog.birthday %>
-                <%= time_ago_in_words(dog.birthday) %>
+                <%= pluralize dog.age, "year" %>
               <% end %>
             </div>
             <div class="col-4 text-center">
@@ -38,7 +38,7 @@
             </div>
             <div class="col-4 text-center">
               <h5><i class="fa-solid fa-weight-hanging"></i></h5>
-              <%= dog.weight %>
+              <%= dog.weight %> kg
             </div>
           </div>
         </div>
