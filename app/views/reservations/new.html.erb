@@ -23,10 +23,10 @@
         </div>
         <p>Start time: <%= @record.start_time%></p>
         <%= simple_form_for [@record, @reservation] do |f| %>
-          <%= f.association :dog, collection: @dogs, label: "Select a dog for this walk"%>
+          <%= f.association :dog, collection: @dogs, label: "Select your dog for this walk"%>
           <%= f.submit 'Submit Your Reservation', class:"btn btn-outline-dark"%>
         <% end %>
-        <%= link_to "Back", routes_path, class:"btn btn-outline-dark"%>
+        <%= link_to "Back to Walks", routes_path, class:"btn btn-outline-dark"%>
       </div>
     </div>
   </div>
