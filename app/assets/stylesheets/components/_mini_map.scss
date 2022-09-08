@@ -1,6 +1,7 @@
 .mini-map{
   opacity: 0.5;
   border-radius: 15px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
 }
 
 .zoom {
@@ -9,10 +10,7 @@
   transition: transform .2s; /* Animation */
   width: 200px;
   height: 200px;
-  // margin: 0;
   opacity: 0.5;
-  // position: absolute;
-  // left: 250px;
 }
 
 .zoom:hover {

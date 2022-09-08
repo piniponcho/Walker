@@ -4,11 +4,15 @@
       data-controller="chatroom-subscription"
       data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-      <% if current_user.walker_status == false %>
-        <h3 class="py-3">Walk #<%= @chatroom.reservation.record.route.id %> with <%= @chatroom.reservation.record.route.user.first_name  %></h3>
-      <% else %>
-        <h3 class="py-3">Walk #<%= @chatroom.reservation.record.route.id %> with <%= @chatroom.reservation.dog.name %> & <%= @chatroom.reservation.dog.user.first_name %></h3>
-      <% end %>
+      <div class="d-flex justify-content-start left">
+        <% if current_user.walker_status == false %>
+
+          <h3 class="py-3"> <%= @chatroom.reservation.record.route.user.first_name  %></h3>
+
+        <% else %>
+          <h3 class="py-3"> <%= @chatroom.reservation.dog.name %> & <%= @chatroom.reservation.dog.user.first_name %></h3>
+        <% end %>
+      </div>
       <div class="messages", data-chatroom-subscription-target="messages">
         <% @chatroom.messages.each do |message| %>
           <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
