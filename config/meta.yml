@@ -1,0 +1,6 @@
+meta_product_name: "Walker"
+meta_title: "Walker - We walk the walk and bark the bark "
+meta_description: "If you don’t have time to walk your best buddy call a Walker!
+Walker connects busy people who don’t have time to walk their dogs with dog lovers who want to earn some money doing what they love. Browse your city to see if you have a registered walk near you!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

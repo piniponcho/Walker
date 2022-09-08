@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :walker_status, :photo])
   end
+
+  def default_url_options
+    { host: ENV["www.my_product.com"] || "www.app-walker.me" }
+  end
 end
