@@ -40,7 +40,7 @@
             <%= f.input :available, input_html: { min: '1', max: '10' } %>
             <%= f.input :price, input_html: { min: '1', max: '50' } %>
             <%= f.button :submit, "Confirm", class:"btn btn-outline-dark" %>
-            <%= link_to "Back", new_route_path, class: "btn btn-outline-dark my-3" %>
+            <%= link_to "Back", routes_path, class: "btn btn-outline-dark my-3" %>
           <% end %>
         <% end %>
       </div>

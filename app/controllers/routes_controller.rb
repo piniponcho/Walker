@@ -51,7 +51,7 @@ class RoutesController < ApplicationController
   end
 
   def update
-    if Route.update(route_params)
+    if @route.update(route_params)
       redirect_to route_path(@route)
     else
       render :edit, status: :unprocessable_entity
