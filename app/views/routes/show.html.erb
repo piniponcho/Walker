@@ -38,6 +38,8 @@
             <%= f.input :start_time, as: :date, html5: true, input_html: { type: 'datetime-local' }%>
             <%= f.input :end_time, as: :date, html5: true, input_html: { type: 'datetime-local' }, minute_step: 30 %>
             <%= f.input :available, input_html: { min: '1', max: '10' } %>
+            <%= f.input :price, input_html: { min: '1', max: '50' } %>
+            <%= f.submit %>
             <%= f.button :submit, "Submit your Schedule", class:"btn btn-outline-dark" %>
             <%= link_to "Back to your Walks", new_route_path, class: "btn btn-outline-dark my-3" %>
           <% end %>
@@ -54,6 +56,7 @@
         <p class="card-text"><strong>Start Time: </strong><%= record.start_time %></p>
         <p class="card-text"><strong>End Time: </strong><%= record.end_time %></p>
         <p class="card-text"><strong>Available: </strong><%= record.available %></p>
+        <p class="card-text"><strong>Price: </strong><%= number_to_currency record.total_price %></p>
       </div>
       <% if current_user.walker_status == true %>
         <div class="text-center mb-3">

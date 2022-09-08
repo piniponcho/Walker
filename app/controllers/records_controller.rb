@@ -48,6 +48,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:start_time, :end_time, :available)
+    params.require(:record).permit(:start_time, :end_time, :available, :price)
   end
 end

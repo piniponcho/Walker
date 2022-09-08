@@ -16,7 +16,7 @@
     <div class="card-body">
       <h2 class="card-title"><%= @dog.name %></h2>
       <ul class="list-group">
-        <li class="list-group-item">Birthday: <%= @dog.birthday %></li>
+        <li class="list-group-item">Age: <%= time_ago_in_words(@dog.birthday) %></li>
         <li class="list-group-item">Breed: <%= @dog.breed %></li>
         <li class="list-group-item">Size: <%= @dog.size %></li>
         <li class="list-group-item">Weight: <%= @dog.weight %> Kgs</li>

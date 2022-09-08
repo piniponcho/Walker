@@ -27,8 +27,10 @@
           </div>
           <div class="row d-flex">
             <div class="col-4 text-center">
-              <h5><i class="fa-solid fa-clock"></i></h5>
-              <%= dog.birthday %>
+              <h5>Age</h5>
+              <% if dog.birthday %>
+                <%= time_ago_in_words(dog.birthday) %>
+              <% end %>
             </div>
             <div class="col-4 text-center">
               <h5><i class="fa-solid fa-ruler"></i></h5>
