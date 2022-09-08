@@ -5,6 +5,7 @@ class Dog < ApplicationRecord
   validates :name, presence: true
   validates :breed, presence: true
   validates :birthday, presence: true, comparison: { less_than: DateTime.now }
+
   validates :size, presence: true
   validates :weight, presence: true, length: { in: 1..100 }
 
