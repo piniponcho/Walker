@@ -26,7 +26,7 @@
             <% end %>
           </div>
           <p class="card-text">Address: <%= @route.address %></p>
-          <p class="card-text">Walker: <%= @route.user.first_name %></p>
+          <p class="card-text">Walker: <%= link_to @route.user.first_name, profile_path(@route.user), class:"btn btn-ghost" %></p>
           <% if current_user.walker_status == true %>
         </div>
       </div>
