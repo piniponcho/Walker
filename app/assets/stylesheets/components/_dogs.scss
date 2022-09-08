@@ -59,30 +59,29 @@
 }
 
 .dogs-index-card {
-  margin: 10%;
-  height: 45vh;
+  margin: 5% 50px;
+  height: 50vh;
+
   width: 380px;
   position: relative;
   border-radius: 12px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  a {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    image-url("fondo-pantalla.jpg");
-    background-position: center;
-    border-radius: 12px;
-    color: black;
-  }
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("https://media.istockphoto.com/photos/gray-doggy-tile-pattern-repeat-background-picture-id490747664?b=1&k=20&m=490747664&s=170667a&w=0&h=ca0K-dWeUfVBRk9nRwMmcsKXd-RStz_BbEXfJ-oTzdw=");
+  background-position: center;
 }
 
-.dogs-index-card-img {
-  width: 50%;
-  // height: 40vh;
-  display: block;
-  position: relative;
-  border-radius: 50%;
-  left:100px;
-  bottom:-50px;
+
+
+.dogs-button-container{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  position:absolute;
+  border-radius: 12px;
+  right: 10px;
+  top:10px;
+  a{
+    color:black;
+  }
 }
 
 .card-desc {
@@ -105,6 +104,44 @@
   height: 100.5%;
 }
 
+.dogs-index-card-img {
+  width: 180px;
+  top: 15%;
+  height: 180px;
+  display: block;
+  position: absolute;
+  border-radius: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dog-index-text{
+  width: 90%;
+  position: absolute;
+  bottom: 10px;
+  color: black;
+  margin: 0 auto;
+  font-size: small;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+@media (max-width: 1000px) {
+  .home-index-cards{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .dogs-index-card-img {
+    width: 220px;
+    height: 220px;
+  }
+}
+
 .dog-show-img{
   height: 500px;
   position: relative;
@@ -121,35 +158,14 @@
   right: 20px;
   font-size: 40px;
 }
-
 .dog-show-back-btn{
   position: absolute;
   top: 20px;
   left: 20px;
 }
-
 .dogs-show-card{
   border-radius: 10px;
 }
-
 .btn-new {
   width: 100%;
 }
-
-.dogs-card-title {
-  h2 {
-    text-align: center;
-    margin:60px;
-  }
-  h5 {
-    position: relative;
-    bottom: 50px;
-    right: -20px;
-  }
-}
-
-// .dogs-info {
-//   background-color: yellow;
-// }
-
-

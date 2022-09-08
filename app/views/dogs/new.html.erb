@@ -6,10 +6,10 @@
         <div class="container">
           <%= simple_form_for (@dog) do |f| %>
             <%= f.input :name, placeholder: "Add your Dog name"%>
-            <%= f.input :birthday%>
+            <%= f.input :birthday, html5: true %>
             <%= f.input :breed, placeholder: "Add your Dog breed"%>
-            <%= f.input :size, prompt: "Choose your dog size", collection: ["Small Doggie", "Medium Dog", "Large DOGGO"]%>
-            <%= f.input :weight, placeholder: "Add your Dog breed"%>
+            <%= f.input :size, prompt: "Choose your dog size", collection: ["S", "M", "L"]%>
+            <%= f.input :weight, placeholder: "Add your Dog breed", collection: 1..100%>
             <%= f.input :photo, as: :file %>
             <%= f.button :submit, "Submit your Dog", class: "btn btn-outline-dark btn-new" %>
             <%= link_to "Back to your Dogs", dogs_path, class: "btn btn-outline-dark btn-new my-3" %>

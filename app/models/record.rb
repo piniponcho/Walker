@@ -5,6 +5,9 @@ class Record < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :price, presence: true
+  validates :available, presence: true, length: { minimum: 1 }
+  validates :start_time, presence: true, comparison: { greater_than: DateTime.now }
+  validates :end_time, presence: true, comparison: { greater_than: :start_time }
 
   def total_price
     duration_in_hours * price
@@ -15,4 +18,5 @@ class Record < ApplicationRecord
   def duration_in_hours
     (end_time - start_time) / 60 / 60
   end
+
 end
