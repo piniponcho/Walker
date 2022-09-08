@@ -1,15 +1,16 @@
 <div class="container py-5">
-  <div class="row">
+  <div class="row my-5">
     <div class="col-12 col-md-6 offset-lg-3">
-    <h4>Edit your route <%= @route.name %></h4>
-      <div class="bg-white rounded p-3 shadow">
+      <div class="bg-white rounded p-3 my-3 shadow">
+      <h4 py-3>Edit your Walk "<%= @route.name %>"</h4>
         <%= simple_form_for (@route) do |f| %>
           <%= f.input :name %>
           <%= f.input :address,
               input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
               wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
           <%= f.input :photo, as: :file %>
-          <%= f.submit %>
+          <%= f.button :submit, "Submit your Change", class:"btn btn-outline-dark btn-new" %>
+          <%= link_to "Back to your Walk", route_path, class: "btn btn-outline-dark btn-new my-3" %>
         <% end %>
       </div>
     </div>
