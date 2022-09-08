@@ -26,8 +26,10 @@
         </div>
           <div class="row dogs-info">
             <div class="col-4 text-center">
-              <h5>Birthday</h5>
-              <%= dog.birthday %>
+              <h5>Age</h5>
+              <% if dog.birthday %>
+                <%= time_ago_in_words(dog.birthday) %>
+              <% end %>
             </div>
             <div class="col-4 text-center">
               <h5>Size </h5>
