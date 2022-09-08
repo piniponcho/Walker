@@ -23,8 +23,42 @@
   }
 }
 
-.dogs-index-card {
+.dog-show-category {
+  background-size: cover;
+  background-position: center;
+  height: calc(45vh - 60px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    image-url("showdog.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  h1 {
+    color: white;
+    font-size: 70px;
+    font-family: $body-font;
+    font-weight: lighter;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  .btn {
+    padding: 15px 50px;
+    margin-top: 15px;
+  }
+}
 
+.container h3 {
+  text-align: center;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dogs-index-card {
   margin: 5% 50px;
   height: 50vh;
 
@@ -37,6 +71,8 @@
   background-position: center;
 }
 
+
+
 .dogs-button-container{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   position:absolute;
@@ -48,10 +84,30 @@
   }
 }
 
+.card-desc {
+  border-radius: 10px;
+  width: 100%;
+  display: block;
+  font-size: 2rem;
+  position: absolute;
+  height: 0;
+  top: 0;
+  color: black;
+  opacity: 0;
+  padding: 18px 8%;
+  background-color: white;
+  transition: 0.8s ease;
+}
+
+.card:hover .card-desc {
+  opacity: 0.8;
+  height: 100.5%;
+}
+
 .dogs-index-card-img {
-  width: 230px;
-  top: 10%;
-  height: 230px;
+  width: 180px;
+  top: 15%;
+  height: 180px;
   display: block;
   position: absolute;
   border-radius: 100%;
@@ -80,5 +136,36 @@
     justify-content: center;
     align-items: center;
   }
+  .dogs-index-card-img {
+    width: 220px;
+    height: 220px;
+  }
 }
 
+.dog-show-img{
+  height: 500px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.dogs-show-button-container{
+  position: absolute;
+  // bottom: -40px;
+  right: 20px;
+  font-size: 40px;
+}
+.dog-show-back-btn{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.dogs-show-card{
+  border-radius: 10px;
+}
+.btn-new {
+  width: 100%;
+}
