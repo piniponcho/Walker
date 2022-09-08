@@ -17,7 +17,7 @@ class DogsController < ApplicationController
     @dog = Dog.create(dog_params)
     @dog.user = @user
     if @dog.save
-      redirect_to dogs_path(@dog)
+      redirect_to dogs_path
     else
       render :new, status: :unprocessable_entity
     end

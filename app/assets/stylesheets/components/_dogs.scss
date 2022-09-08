@@ -23,135 +23,62 @@
   }
 }
 
-.dog-show-category {
-  background-size: cover;
-  background-position: center;
-  height: calc(45vh - 60px);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    image-url("showdog.jpg");
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  h1 {
-    color: white;
-    font-size: 70px;
-    font-family: $body-font;
-    font-weight: lighter;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
-  .btn {
-    padding: 15px 50px;
-    margin-top: 15px;
-  }
-}
-
-.container h3 {
-  text-align: center;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: center;
-}
-
 .dogs-index-card {
-  margin: 10%;
-  height: 53vh;
+
+  margin: 5% 50px;
+  height: 50vh;
+
   width: 380px;
   position: relative;
   border-radius: 12px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  a {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    image-url("fondo-pantalla.jpg");
-    background-position: center;
-    border-radius: 12px;
-    color: black;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("https://media.istockphoto.com/photos/gray-doggy-tile-pattern-repeat-background-picture-id490747664?b=1&k=20&m=490747664&s=170667a&w=0&h=ca0K-dWeUfVBRk9nRwMmcsKXd-RStz_BbEXfJ-oTzdw=");
+  background-position: center;
+}
+
+.dogs-button-container{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  position:absolute;
+  border-radius: 12px;
+  right: 10px;
+  top:10px;
+  a{
+    color:black;
   }
 }
 
 .dogs-index-card-img {
-  width: 50%;
-  // height: 40vh;
+  width: 230px;
+  top: 10%;
+  height: 230px;
   display: block;
-  position: relative;
-  border-radius: 50%;
-  left:100px;
-  bottom:-50px;
-}
-
-.card-desc {
-  border-radius: 10px;
-  width: 100%;
-  display: block;
-  font-size: 2rem;
   position: absolute;
-  height: 0;
-  top: 0;
-  color: black;
-  opacity: 0;
-  padding: 18px 8%;
-  background-color: white;
-  transition: 0.8s ease;
-}
-
-.card:hover .card-desc {
-  opacity: 0.8;
-  height: 100.5%;
-}
-
-.dog-show-img{
-  height: 500px;
-  position: relative;
+  border-radius: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  background-size: cover;
 }
 
-.dogs-show-button-container{
+.dog-index-text{
+  width: 90%;
   position: absolute;
-  // bottom: -40px;
-  right: 20px;
-  font-size: 40px;
+  bottom: 10px;
+  color: black;
+  margin: 0 auto;
+  font-size: small;
+  transform: translateX(-50%);
+  left: 50%;
 }
 
-.dog-show-back-btn{
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.dogs-show-card{
-  border-radius: 10px;
-}
-
-.btn-new {
-  width: 100%;
-}
-
-.dogs-card-title {
-  h2 {
-    text-align: center;
-    margin:60px;
-  }
-  h5 {
-    position: relative;
-    bottom: 50px;
-    right: -20px;
+@media (max-width: 1000px) {
+  .home-index-cards{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-.btn-edit {
-  width: 100%;
-}
-
-// .dogs-info {
-//   background-color: yellow;
-// }
