@@ -7,9 +7,7 @@
 <div class="container my-3 py-6">
   <div class="d-flex home-index-cards">
     <% @dogs.each do |dog| %>
-
-      <div class="card mx-3 dogs-index-card" data-aos="zoom-out-up"
-        data-aos-anchor-placement="bottom-bottom">
+      <div class="card mx-3 dogs-index-card">
           <div class="dogs-index-card-img" style="background-image: url('<%= cl_image_path dog.photo.key, crop: :fit %>')"></div>
           <div class="dogs-button-container">
 
