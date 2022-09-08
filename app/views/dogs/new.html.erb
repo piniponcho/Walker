@@ -11,8 +11,8 @@
             <%= f.input :size, prompt: "Choose your dog size", collection: ["S", "M", "L"]%>
             <%= f.input :weight, placeholder: "Add your Dog breed", collection: 1..100%>
             <%= f.input :photo, as: :file %>
-            <%= f.button :submit, "Submit your Dog", class: "btn btn-outline-dark btn-new" %>
-            <%= link_to "Back to your Dogs", dogs_path, class: "btn btn-outline-dark btn-new my-3" %>
+            <%= f.button :submit, "Confirm", class: "btn btn-outline-dark btn-new" %>
+            <%= link_to "Back", dogs_path, class: "btn btn-outline-dark btn-new my-3" %>
           <% end %>
         </div>
       </div>

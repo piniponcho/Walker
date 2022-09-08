@@ -36,13 +36,13 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Update", class:"btn btn-outline-dark" %>
+            <%= f.button :submit, "Confirm", class:"btn btn-outline-dark" %>
           </div>
         <% end %>
+        <%= link_to "Back", :back, class:"btn btn-outline-dark"%>
 
         <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-        <%= link_to "Back", :back, class:"btn btn-outline-dark"%>
       </div>
     </div>
   </div>

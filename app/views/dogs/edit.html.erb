@@ -9,10 +9,10 @@
             <%= f.input :breed %>
             <%= f.input :birthday %>
             <%= f.input :weight %>
-            <%= f.input :size, collection: ["Small Doggie", "Medium Dog", "Large DOGGO"] %>
+            <%= f.input :size, collection: ["S", "M", "L"] %>
             <%= f.input :photo, as: :file %>
-            <%= f.button :submit, "Edit", class:"btn btn-outline-dark btn-edit"  %>
-            <%= link_to "Back to your Dogs", dogs_path, class: "btn btn-outline-dark btn-edit my-2" %>
+            <%= f.button :submit, "Save", class:"btn btn-outline-dark btn-new"  %>
+            <%= link_to "Back", dogs_path, class: "btn btn-outline-dark btn-new my-2" %>
           <% end %>
         </div>
       </div>
