@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    { host: ENV["www.my_product.com"] || "www.app-walker.me" }
+    { host: ENV["www.app-walker.me"] || "localhost:3000" }
   end
 end
