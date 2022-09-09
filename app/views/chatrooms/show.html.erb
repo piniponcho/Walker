@@ -6,9 +6,7 @@
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
       <div class="d-flex justify-content-start left">
         <% if current_user.walker_status == false %>
-
-          <h3 class="py-3"> <%= @chatroom.reservation.record.route.user.first_name  %></h3>
-
+          <%= link_to @chatroom.reservation.record.route.user.first_name, profile_path(@chatroom.walker_id), class:"btn btn-outline-dark btn-walker my-3"%>
         <% else %>
           <h3 class="py-3"> <%= @chatroom.reservation.dog.name %> & <%= @chatroom.reservation.dog.user.first_name %></h3>
         <% end %>
@@ -30,7 +28,7 @@
             placeholder: "Write a message here",
             wrapper_html: {class: "flex-grow-1"},
             input_html: {class:"mesage"} %>
-          <%= f.submit "Send", class: "btn btn-outline-dark" %>
+          <%= f.submit "Send", class: "btn btn-outline-dark btn-send" %>
         <% end %>
       </div>
     </div>
